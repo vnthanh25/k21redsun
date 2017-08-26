@@ -1,0 +1,295 @@
+<section class="content-header">
+</section>
+
+<!-- Main content -->
+<section class="content">
+	
+	<!-- Default box -->
+	<div class="box">
+		<div class="box-header with-border">
+			<h3 class="box-title">{{'bimbuildui_versioncomponent_title' | translate}}</h3>
+	      <div class="box-tools pull-right">
+	        <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+	        <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+	      </div>
+		</div>
+		<div class="box-body">
+	
+			<div ng-init="initList()">
+				<!-- panel -->
+				<div class="panel panel-default">
+					<!-- panel-heading -->
+					<div class="panel-heading">
+					
+						<!-- top actions -->
+						<div class="row">
+							<div class="pull-left">
+								<dir-pagination-controls
+									   max-size="8"
+									   direction-links="true"
+									   boundary-links="true" 
+									   on-page-change="listWithCriteriasByPage(newPageNumber)" >
+								</dir-pagination-controls>
+							</div>
+							<div class="btn-group pull-right">
+								<button class="btn btn-info" ng-click="showCreate()" data-toggle="tooltip" title="{{'bimbuildui_home_create' | translate}}">
+									<span class="glyphicon glyphicon-plus"></span>
+								</button>
+							</div>
+						</div>
+	
+						<!-- filter	 -->
+						<div class="row">
+							<!-- filter by id -->
+							<div class="col-md-3">
+								<div class="form-group col-md-12">
+									<label class="col-md-2" for="id">{{'bimbuildui_versioncomponent_id'
+										| translate}}</label>
+									<div class="input-group col-md-4">
+										<input class="form-control inpput-sm" type="text"
+											ng-model="search.id"></input>
+									</div>
+								</div>
+							</div>
+							<!-- filter by name -->
+							<div class="col-md-3">
+								<div class="form-group col-md-12">
+									<label class="col-md-6" for="name">{{'bimbuildui_versioncomponent_name'
+										| translate}}</label>
+									<div class="input-group col-md-6">
+										<input class="form-control inpput-sm" type="text"
+											ng-model="search.name"></input>
+									</div>
+								</div>
+							</div>
+							<!-- filter by idproduct -->
+							<!-- 	<div class="col-md-2">
+								<input type="text" ng-model="search.idproduct" class="inpput-sm"/>
+							</div> -->
+							<!-- filter by idcontact -->
+							<!-- <div class="col-md-2">
+								<input type="text" ng-model="search.idcontact" class="inpput-sm" placeholder="{{'bimbuildui_versioncomponent_idcontact' | translate}}" />
+							</div> -->
+							<!-- filter by idresource -->
+							<!-- <div class="col-md-2">
+								<input type="text" ng-model="search.idresource" class="inpput-sm" placeholder="{{'bimbuildui_versioncomponent_idresource' | translate}}" />
+							</div> -->
+							<!-- filter by description -->
+							<!-- <div class="col-md-2">
+								<input type="text" ng-model="search.description" class="inpput-sm" placeholder="{{'bimbuildui_versioncomponent_description' | translate}}" />
+							</div> -->
+							<!-- filter by creationdate -->
+							<!-- <div class="col-md-2">
+								<input type="text" ng-model="search.creationdate" class="inpput-sm" placeholder="{{'bimbuildui_versioncomponent_creationdate' | translate}}" />
+							</div> -->
+							<!-- filter by idle -->
+							<!-- <div class="col-md-2">
+								<input type="text" ng-model="search.idle" class="inpput-sm" placeholder="{{'bimbuildui_versioncomponent_idle' | translate}}" />
+							</div> -->
+							<!-- filter by initialeisdate -->
+							<!-- <div class="col-md-2">
+								<input type="text" ng-model="search.initialeisdate" class="inpput-sm" placeholder="{{'bimbuildui_versioncomponent_initialeisdate' | translate}}" />
+							</div> -->
+							<!-- filter by plannedeisdate -->
+							<!-- <div class="col-md-2">
+								<input type="text" ng-model="search.plannedeisdate" class="inpput-sm" placeholder="{{'bimbuildui_versioncomponent_plannedeisdate' | translate}}" />
+							</div> -->
+							<!-- filter by realeisdate -->
+							<!-- <div class="col-md-2">
+								<input type="text" ng-model="search.realeisdate" class="inpput-sm" placeholder="{{'bimbuildui_versioncomponent_realeisdate' | translate}}" />
+							</div> -->
+							<!-- filter by initialenddate -->
+							<!-- <div class="col-md-2">
+								<input type="text" ng-model="search.initialenddate" class="inpput-sm" placeholder="{{'bimbuildui_versioncomponent_initialenddate' | translate}}" />
+							</div> -->
+							<!-- filter by plannedenddate -->
+							<!-- <div class="col-md-2">
+								<input type="text" ng-model="search.plannedenddate" class="inpput-sm" placeholder="{{'bimbuildui_versioncomponent_plannedenddate' | translate}}" />
+							</div> -->
+							<!-- filter by realenddate -->
+							<!-- <div class="col-md-2">
+								<input type="text" ng-model="search.realenddate" class="inpput-sm" placeholder="{{'bimbuildui_versioncomponent_realenddate' | translate}}" />
+							</div> -->
+							<!-- filter by iseis -->
+							<!-- <div class="col-md-2">
+								<input type="text" ng-model="search.iseis" class="inpput-sm" placeholder="{{'bimbuildui_versioncomponent_iseis' | translate}}" />
+							</div> -->
+							<!-- filter by scope -->
+							<!-- <div class="col-md-2">
+								<input type="text" ng-model="search.scope" class="inpput-sm" placeholder="{{'bimbuildui_versioncomponent_scope' | translate}}" />
+							</div> -->
+							<!-- filter by versionnumber -->
+							<!-- <div class="col-md-2">
+								<input type="text" ng-model="search.versionnumber" class="inpput-sm" placeholder="{{'bimbuildui_versioncomponent_versionnumber' | translate}}" />
+							</div> -->
+							<!-- filter by iduser -->
+							<!-- <div class="col-md-2">
+								<input type="text" ng-model="search.iduser" class="inpput-sm" placeholder="{{'bimbuildui_versioncomponent_iduser' | translate}}" />
+							</div> -->
+							<!-- filter by idversiontype -->
+							<div class="col-md-3">
+								<div class="form-group col-md-12">
+									<label class="col-md-6" for="idversiontype">{{'bimbuildui_versioncomponent_idversiontype'
+										| translate}}</label>
+									<div class="input-group col-md-6">
+										<input class="form-control inpput-sm" type="text"
+											ng-model="search.idversiontype"></input>
+									</div>
+								</div>
+							</div>
+							<!-- filter button -->
+							<div class="col-md-2 btn-group">
+								<button type="button" class="btn btn-default" ng-click="listWithCriteriasByPage(1)" data-toggle="tooltip" title="{{'bimbuildui_home_filter' | translate}}"><span class="glyphicon glyphicon-filter"></span></button>
+								<button type="button" class="btn btn-default" ng-click="clearFilter()" data-toggle="tooltip" title="{{'bimbuildui_home_filter_clear' | translate}}"><span class="glyphicon glyphicon-remove"></span></button>
+							</div>
+						</div>
+	
+					</div>
+				
+					<!-- list of content -->
+					<div class="panel-body">
+						<div class="table-responsive">
+							<table class="table table-bordered table-striped">
+								<thead>
+									<tr>
+										<!-- filter by id -->
+										<th ng-click="sortBy('id')">{{'bimbuildui_versioncomponent_id' | translate}}
+											<span ng-show="sortKey === 'id'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by name -->
+										<th ng-click="sortBy('name')">{{'bimbuildui_versioncomponent_name' | translate}}
+											<span ng-show="sortKey === 'name'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by idproduct -->
+										<th ng-click="sortBy('idproduct')">{{'bimbuildui_versioncomponent_idproduct' | translate}}
+											<span ng-show="sortKey === 'idproduct'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by plannedeisdate -->
+										<th ng-click="sortBy('plannedeisdate')">{{'bimbuildui_versioncomponent_plannedeisdate' | translate}}
+											<span ng-show="sortKey === 'plannedeisdate'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by realeisdate -->
+										<th ng-click="sortBy('realeisdate')">{{'bimbuildui_versioncomponent_realeisdate' | translate}}
+											<span ng-show="sortKey === 'realeisdate'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by plannedenddate -->
+										<th ng-click="sortBy('plannedenddate')">{{'bimbuildui_versioncomponent_plannedenddate' | translate}}
+											<span ng-show="sortKey === 'plannedenddate'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by realenddate -->
+										<th ng-click="sortBy('realenddate')">{{'bimbuildui_versioncomponent_realenddate' | translate}}
+											<span ng-show="sortKey === 'realenddate'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by iseis -->
+										<th ng-click="sortBy('iseis')">{{'bimbuildui_versioncomponent_iseis' | translate}}
+											<span ng-show="sortKey === 'iseis'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by idle -->
+										<th ng-click="sortBy('idle')">{{'bimbuildui_versioncomponent_idle' | translate}}
+											<span ng-show="sortKey === 'idle'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by idversiontype -->
+										<th ng-click="sortBy('idversiontype')">{{'bimbuildui_versioncomponent_idversiontype' | translate}}
+											<span ng-show="sortKey === 'idversiontype'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by idcontact -->
+										<th ng-click="sortBy('idcontact')">{{'bimbuildui_versioncomponent_idcontact' | translate}}
+											<span ng-show="sortKey === 'idcontact'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by idresource -->
+										<th ng-click="sortBy('idresource')">{{'bimbuildui_versioncomponent_idresource' | translate}}
+											<span ng-show="sortKey === 'idresource'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by creationdate -->
+										<th ng-click="sortBy('creationdate')">{{'bimbuildui_versioncomponent_creationdate' | translate}}
+											<span ng-show="sortKey === 'creationdate'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by iduser -->
+										<th ng-click="sortBy('iduser')">{{'bimbuildui_versioncomponent_iduser' | translate}}
+											<span ng-show="sortKey === 'iduser'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by initialeisdate -->
+										<th ng-click="sortBy('initialeisdate')">{{'bimbuildui_versioncomponent_initialeisdate' | translate}}
+											<span ng-show="sortKey === 'initialeisdate'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by initialenddate -->
+										<th ng-click="sortBy('initialenddate')">{{'bimbuildui_versioncomponent_initialenddate' | translate}}
+											<span ng-show="sortKey === 'initialenddate'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by description -->
+										<!-- <th ng-click="sortBy('description')">{{'bimbuildui_versioncomponent_description' | translate}}
+											<span ng-show="sortKey === 'description'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th> -->
+										<!-- filter by scope -->
+									<!-- 	<th ng-click="sortBy('scope')">{{'bimbuildui_versioncomponent_scope' | translate}}
+											<span ng-show="sortKey === 'scope'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th> -->
+										<!-- filter by versionnumber -->
+									<!-- 	<th ng-click="sortBy('versionnumber')">{{'bimbuildui_versioncomponent_versionnumber' | translate}}
+											<span ng-show="sortKey === 'versionnumber'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th> -->
+										<th/>
+										<th/>
+									</tr>
+								</thead>
+								<tbody>
+									<tr dir-paginate="item in versioncomponents | orderBy:sortKey:reverse | itemsPerPage:page.pageSize" current-page="page.currentPage" total-items="page.totalElements">
+										<!-- filter by idproduct -->
+										<td>{{item.idproduct}}</td>
+										<!-- filter by idcontact -->
+										<td>{{item.idcontact}}</td>
+										<!-- filter by idresource -->
+										<td>{{item.idresource}}</td>
+										<!-- filter by name -->
+										<td>{{item.name}}</td>
+										<!-- filter by description -->
+										<td>{{item.description}}</td>
+										<!-- filter by creationdate -->
+										<td>{{item.creationdate}}</td>
+										<!-- filter by idle -->
+										<td>{{item.idle}}</td>
+										<!-- filter by initialeisdate -->
+										<td>{{item.initialeisdate}}</td>
+										<!-- filter by plannedeisdate -->
+										<td>{{item.plannedeisdate}}</td>
+										<!-- filter by realeisdate -->
+										<td>{{item.realeisdate}}</td>
+										<!-- filter by initialenddate -->
+										<td>{{item.initialenddate}}</td>
+										<!-- filter by plannedenddate -->
+										<td>{{item.plannedenddate}}</td>
+										<!-- filter by realenddate -->
+										<td>{{item.realenddate}}</td>
+										<!-- filter by iseis -->
+										<td>{{item.iseis}}</td>
+										<!-- filter by scope -->
+										<td>{{item.scope}}</td>
+										<!-- filter by versionnumber -->
+										<td>{{item.versionnumber}}</td>
+										<!-- filter by iduser -->
+										<td>{{item.iduser}}</td>
+										<!-- filter by idversiontype -->
+										<td>{{item.idversiontype}}</td>
+										<td>
+											<div ng-click="showForm(item.id)" data-toggle="tooltip" title="{{'bimbuildui_home_edit' | translate}}">
+												<span class="glyphicon glyphicon-pencil"></span>
+											</div>
+										</td>
+										<td>
+											<div ng-click="delete(item.id)" data-toggle="tooltip" title="{{'bimbuildui_home_delete' | translate}}">
+												<span class="glyphicon glyphicon-trash"></span>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div><!-- /.box-body -->
+	    
+	  </div><!-- /.box -->
+
+</section><!-- /.content -->

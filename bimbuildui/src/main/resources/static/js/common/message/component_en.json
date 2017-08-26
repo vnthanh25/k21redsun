@@ -1,0 +1,17 @@
+{
+	"bimbuildui_component_title": "Components",
+	"bimbuildui_component_name": "component name",
+	"bimbuildui_component_idclient": "customer name",
+	"bimbuildui_component_idcontact": "prime contractor",
+	"bimbuildui_component_description": "description",
+	"bimbuildui_component_creationdate": "creation date",
+	"bimbuildui_component_idle": "closed",
+	"bimbuildui_component_idproduct": "is sub-component of",
+	"bimbuildui_component_designation": "designation",
+	"bimbuildui_component_scope": "scope",
+	"bimbuildui_component_idproducttype": "product type",
+	"bimbuildui_component_idcomponenttype": "component type",
+	"bimbuildui_component_idresource": "responsible",
+	"bimbuildui_component_iduser": "user",
+	"bimbuildui_component_id": "id"
+}

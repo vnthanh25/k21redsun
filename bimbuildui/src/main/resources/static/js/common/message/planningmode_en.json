@@ -1,0 +1,12 @@
+{
+	"bimbuildui_planningmode_title": "Planningmode",
+	"bimbuildui_planningmode_name": "name",
+	"bimbuildui_planningmode_code": "code",
+	"bimbuildui_planningmode_sortorder": "sortorder",
+	"bimbuildui_planningmode_mandatorystartdate": "mandatorystartdate",
+	"bimbuildui_planningmode_mandatoryenddate": "mandatoryenddate",
+	"bimbuildui_planningmode_applyto": "applyto",
+	"bimbuildui_planningmode_idle": "idle",
+	"bimbuildui_planningmode_mandatoryduration": "mandatoryduration"
+	
+}

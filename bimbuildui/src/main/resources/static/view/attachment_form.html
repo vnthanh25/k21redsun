@@ -1,0 +1,251 @@
+
+<div>
+
+	<form name="frmAttachment" novalidate class="css-form">
+		<div class="panel panel-default">
+			<!-- Top actions -->
+			<div class="panel-heading">
+				<div class="row">
+				
+					<div class="btn btn-link pull-left" ng-click="list()">{{'bimbuildui_attachment_title' | translate}}</div>
+					<div class="btn-group pull-right">
+						<button class="btn btn-info" ng-click="save()" data-toggle="tooltip" title="{{'bimbuildui_home_save' | translate}}">
+							<span class="glyphicon glyphicon-floppy-disk"></span>
+						</button>
+						<button class="btn btn-info" ng-click="create()" data-toggle="tooltip" title="{{'bimbuildui_home_create' | translate}}">
+							<span class="glyphicon glyphicon-plus"></span>
+						</button>
+						<button class="btn btn-info" ng-click="closeDialog()" data-toggle="tooltip" title="{{'bimbuildui_home_close' | translate}}">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+			<!-- Alert Message -->
+			<div id="alertMessage" class="alert" style="display: none">
+				<strong>{{alertMessage}}</strong>
+			</div>
+			<!-- Context -->
+			<div class="panel-body">
+				<div class="row">
+					
+					<!-- First column -->
+					<div class="col-sm-6">
+						<div class="form-vertical">
+							<!-- reftype -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="reftype">{{'bimbuildui_attachment_reftype' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAttachment.reftype.$touched || frmAttachment.reftype.$dirty || frmDirty) && frmAttachment.reftype.$invalid }">
+									<input class="form-control" type="text" id="reftype" name="reftype" ng-model="attachment.reftype" required maxlength="50"></input>
+								</div>
+							</div>
+							<!-- /reftype -->
+							<!-- refid -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="refid">{{'bimbuildui_attachment_refid' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAttachment.refid.$touched || frmAttachment.refid.$dirty || frmDirty) && frmAttachment.refid.$invalid }">
+									<input class="form-control" type="text" id="refid" name="refid" ng-model="attachment.refid" required maxlength="50"></input>
+								</div>
+							</div>
+							<!-- /refid -->
+							<!-- iduser -->
+						<!-- 	<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="iduser">{{'bimbuildui_attachment_iduser' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAttachment.iduser.$touched || frmAttachment.iduser.$dirty || frmDirty) && frmAttachment.iduser.$invalid }">
+									<input class="form-control" type="text" id="iduser" name="iduser" ng-model="attachment.iduser" required maxlength="50"></input>
+								</div>
+							</div> -->
+							<!-- /iduser -->
+							<!-- creationdate -->
+					<!-- 		<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="creationdate">{{'bimbuildui_attachment_creationdate' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAttachment.creationdate.$touched || frmAttachment.creationdate.$dirty || frmDirty) && frmAttachment.creationdate.$invalid }">
+									<input class="form-control" type="text" id="creationdate" name="creationdate" ng-model="attachment.creationdate" required maxlength="50"></input>
+								</div>
+							</div> -->
+							<!-- /creationdate -->
+							<!-- filename -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="filename">{{'bimbuildui_attachment_filename' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAttachment.filename.$touched || frmAttachment.filename.$dirty || frmDirty) && frmAttachment.filename.$invalid }">
+									<input class="form-control" type="text" id="filename" name="filename" ng-model="attachment.filename" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmAttachment.filename.$invalid">
+										<validation-tooltip target="filename">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /filename -->
+							<!-- description -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="description">{{'bimbuildui_attachment_description' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAttachment.description.$touched || frmAttachment.description.$dirty || frmDirty) && frmAttachment.description.$invalid }">
+									<input class="form-control" type="text" id="description" name="description" ng-model="attachment.description" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmAttachment.description.$invalid">
+										<validation-tooltip target="description">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /description -->
+							<!-- subdirectory -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="subdirectory">{{'bimbuildui_attachment_subdirectory' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAttachment.subdirectory.$touched || frmAttachment.subdirectory.$dirty || frmDirty) && frmAttachment.subdirectory.$invalid }">
+									<input class="form-control" type="text" id="subdirectory" name="subdirectory" ng-model="attachment.subdirectory" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmAttachment.subdirectory.$invalid">
+										<validation-tooltip target="subdirectory">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /subdirectory -->
+							<!-- mimetype -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="mimetype">{{'bimbuildui_attachment_mimetype' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAttachment.mimetype.$touched || frmAttachment.mimetype.$dirty || frmDirty) && frmAttachment.mimetype.$invalid }">
+									<input class="form-control" type="text" id="mimetype" name="mimetype" ng-model="attachment.mimetype" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmAttachment.mimetype.$invalid">
+										<validation-tooltip target="mimetype">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /mimetype -->
+							<!-- filesize -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="filesize">{{'bimbuildui_attachment_filesize' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAttachment.filesize.$touched || frmAttachment.filesize.$dirty || frmDirty) && frmAttachment.filesize.$invalid }">
+									<input class="form-control" type="text" id="filesize" name="filesize" ng-model="attachment.filesize" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmAttachment.filesize.$invalid">
+										<validation-tooltip target="filesize">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /filesize -->
+							<!-- link -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="link">{{'bimbuildui_attachment_link' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAttachment.link.$touched || frmAttachment.link.$dirty || frmDirty) && frmAttachment.link.$invalid }">
+									<input class="form-control" type="text" id="link" name="link" ng-model="attachment.link" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmAttachment.link.$invalid">
+										<validation-tooltip target="link">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /link -->
+							<!-- type -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="type">{{'bimbuildui_attachment_type' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAttachment.type.$touched || frmAttachment.type.$dirty || frmDirty) && frmAttachment.type.$invalid }">
+									<input class="form-control" type="text" id="type" name="type" ng-model="attachment.type" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmAttachment.type.$invalid">
+										<validation-tooltip target="type">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /type -->
+							<!-- idprivacy -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="idprivacy">{{'bimbuildui_attachment_idprivacy' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAttachment.idprivacy.$touched || frmAttachment.idprivacy.$dirty || frmDirty) && frmAttachment.idprivacy.$invalid }">
+									<input class="form-control" type="text" id="idprivacy" name="idprivacy" ng-model="attachment.idprivacy" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmAttachment.idprivacy.$invalid">
+										<validation-tooltip target="idprivacy">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /idprivacy -->
+							<!-- idteam -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="idteam">{{'bimbuildui_attachment_idteam' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAttachment.idteam.$touched || frmAttachment.idteam.$dirty || frmDirty) && frmAttachment.idteam.$invalid }">
+									<input class="form-control" type="text" id="idteam" name="idteam" ng-model="attachment.idteam" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmAttachment.idteam.$invalid">
+										<validation-tooltip target="idteam">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /idteam -->
+						</div>
+					</div>
+					<!-- /First column -->
+					
+					<!-- Second column -->
+					<div class="col-sm-6">
+						<div class="form-vertical">
+						
+						</div>
+					</div>
+					<!-- /Second column -->
+				</div>
+			</div>
+			<!-- Bottom actions -->
+			<div class="panel-footer">
+				<div class="row">
+					<div class="btn-group pull-right">
+						<button class="btn btn-info" ng-click="save()" data-toggle="tooltip" title="{{'bimbuildui_home_save' | translate}}">
+							<span class="glyphicon glyphicon-floppy-disk"></span>
+						</button>
+						<button class="btn btn-info" ng-click="create()" data-toggle="tooltip" title="{{'bimbuildui_home_create' | translate}}">
+							<span class="glyphicon glyphicon-plus"></span>
+						</button>
+						<button class="btn btn-info" ng-click="closeDialog()" data-toggle="tooltip" title="{{'bimbuildui_home_close' | translate}}">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

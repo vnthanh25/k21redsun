@@ -1,0 +1,240 @@
+<section class="content-header"></section>
+
+<!-- Main content -->
+<section class="content">
+
+	<!-- Default box -->
+	<div class="box">
+		<div class="box-header with-border">
+			<h3 class="box-title">{{'bimbuildui_client_title' | translate}}</h3>
+			<div class="box-tools pull-right">
+				<button class="btn btn-box-tool" data-widget="collapse"
+					data-toggle="tooltip" title="Collapse">
+					<i class="fa fa-minus"></i>
+				</button>
+				<button class="btn btn-box-tool" data-widget="remove"
+					data-toggle="tooltip" title="Remove">
+					<i class="fa fa-times"></i>
+				</button>
+			</div>
+		</div>
+		<div class="box-body">
+
+			<div ng-init="initList()">
+				<!-- panel -->
+				<div class="panel panel-default">
+					<!-- panel-heading -->
+					<div class="panel-heading">
+
+						<!-- top actions -->
+						<div class="row">
+							<div class="pull-left">
+								<dir-pagination-controls max-size="8" direction-links="true"
+									boundary-links="true"
+									on-page-change="listWithCriteriasByPage(newPageNumber)">
+								</dir-pagination-controls>
+							</div>
+							<div class="btn-group pull-right">
+								<button class="btn btn-info" ng-click="showCreate()"
+									data-toggle="tooltip"
+									title="{{'bimbuildui_home_create' | translate}}">
+									<span class="glyphicon glyphicon-plus"></span>
+								</button>
+							</div>
+						</div>
+
+						<!-- filter	 -->
+						<div class="row">
+							<!-- filter by name -->
+							<div class="col-md-3">
+								<label class="control-label col-sm-3" for="name">Name:</label> <input
+									type="text" ng-model="search.name" class="inpput-sm" />
+							</div>
+							<!-- filter by clientcode -->
+							<div class="col-md-4">
+								<label class="control-label col-sm-3" for="clientcode">Customer
+									Code:</label> <input type="text" ng-model="search.clientcode"
+									class="inpput-sm" />
+							</div>
+							<!-- filter by customer -->
+							
+							<div class="col-md-3">
+								<label class="control-label col-sm-3" for="idclienttype">Type:</label>
+								<input type="text" ng-model="search.idclienttype"
+									class="inpput-sm" /></div>
+
+							<!-- filter button -->
+							<div class="col-md-2 btn-group">
+								<button type="button" class="btn btn-default"
+									ng-click="listWithCriteriasByPage(1)" data-toggle="tooltip"
+									title="{{'bimbuildui_home_filter' | translate}}">
+									<span class="glyphicon glyphicon-filter"></span>
+								</button>
+								<button type="button" class="btn btn-default"
+									ng-click="clearFilter()" data-toggle="tooltip"
+									title="{{'bimbuildui_home_filter_clear' | translate}}">
+									<span class="glyphicon glyphicon-remove"></span>
+								</button>
+							</div>
+						</div>
+
+					</div>
+
+					<!-- list of content -->
+					<div class="panel-body">
+						<div class="table-responsive">
+							<table class="table table-bordered table-striped">
+								<thead>
+									<tr>
+										<!-- filter by name -->
+										<th ng-click="sortBy('name')">{{'bimbuildui_client_name'
+											| translate}} <span ng-show="sortKey === 'name'"
+											class="glyphicon sort-icon"
+											ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}" />
+										</th>
+										<!-- filter by typeofcustomer -->
+										<th ng-click="sortBy('customer')">{{'bimbuildui_client_type'
+											| translate}} <span ng-show="sortKey === 'idclienttype'"
+											class="glyphicon sort-icon"
+											ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}" />
+										</th>
+										<!-- filter by clientcode -->
+										<th ng-click="sortBy('clientcode')">{{'bimbuildui_client_clientcode'
+											| translate}} <span ng-show="sortKey === 'clientcode'"
+											class="glyphicon sort-icon"
+											ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}" />
+										</th>
+										<!-- filter by paymentdelay -->
+										<th ng-click="sortBy('paymentdelay')">{{'bimbuildui_client_paymentdelay'
+											| translate}} <span ng-show="sortKey === 'paymentdelay'"
+											class="glyphicon sort-icon"
+											ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}" />
+										</th>
+										<!-- filter by tax -->
+										<th ng-click="sortBy('tax')">{{'bimbuildui_client_tax' |
+											translate}} <span ng-show="sortKey === 'tax'"
+											class="glyphicon sort-icon"
+											ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}" />
+										</th>
+										<!-- filter by idle -->
+										<th ng-click="sortBy('idle')">{{'bimbuildui_client_idle'
+											| translate}} <span ng-show="sortKey === 'idle'"
+											class="glyphicon sort-icon"
+											ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}" />
+										</th>
+										<!-- filter by numtax -->
+										<th ng-click="sortBy('numtax')">{{'bimbuildui_client_numtax'
+											| translate}} <span ng-show="sortKey === 'numtax'"
+											class="glyphicon sort-icon"
+											ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}" />
+										</th>
+										<!-- filter by designation -->
+										<th ng-click="sortBy('designation')">{{'bimbuildui_client_designation'
+											| translate}} <span ng-show="sortKey === 'designation'"
+											class="glyphicon sort-icon"
+											ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}" />
+										</th>
+										<!-- filter by street -->
+										<th ng-click="sortBy('street')">{{'bimbuildui_client_street'
+											| translate}} <span ng-show="sortKey === 'street'"
+											class="glyphicon sort-icon"
+											ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}" />
+										</th>
+										<!-- filter by complement -->
+										<th ng-click="sortBy('complement')">{{'bimbuildui_client_complement'
+											| translate}} <span ng-show="sortKey === 'complement'"
+											class="glyphicon sort-icon"
+											ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}" />
+										</th>
+										<!-- filter by zip -->
+										<th ng-click="sortBy('zip')">{{'bimbuildui_client_zip' |
+											translate}} <span ng-show="sortKey === 'zip'"
+											class="glyphicon sort-icon"
+											ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}" />
+										</th>
+										<!-- filter by city -->
+										<th ng-click="sortBy('city')">{{'bimbuildui_client_city'
+											| translate}} <span ng-show="sortKey === 'city'"
+											class="glyphicon sort-icon"
+											ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}" />
+										</th>
+										<!-- filter by state -->
+										<th ng-click="sortBy('state')">{{'bimbuildui_client_state'
+											| translate}} <span ng-show="sortKey === 'state'"
+											class="glyphicon sort-icon"
+											ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}" />
+										</th>
+										<!-- filter by country -->
+										<th ng-click="sortBy('country')">{{'bimbuildui_client_country'
+											| translate}} <span ng-show="sortKey === 'country'"
+											class="glyphicon sort-icon"
+											ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}" />
+										</th>
+
+									</tr>
+								</thead>
+								<tbody>
+									<tr
+										dir-paginate="item in clients | orderBy:sortKey:reverse | itemsPerPage:page.pageSize"
+										current-page="page.currentPage"
+										total-items="page.totalElements">
+										<!-- filter by name -->
+										<td>{{item.name}}</td>
+										<!-- filter by typeofcustomer -->
+										<td>{{getCustomerName(item.idclienttype)}}</td>
+										<!-- filter by clientcode -->
+										<td>{{getPaymentdelayName(item.paymentdelay)}}</td>
+										<!-- filter by paymentdelay -->
+										<td>{{item.paymentdelay}}</td>
+										<!-- filter by tax -->
+										<td>{{item.tax}}</td>
+										<!-- filter by idle -->
+										<td>{{item.idle}}</td>
+										<!-- filter by numtax -->
+										<td>{{item.numtax}}</td>
+										<!-- filter by designation -->
+										<td>{{item.designation}}</td>
+										<!-- filter by street -->
+										<td>{{item.street}}</td>
+										<!-- filter by complement -->
+										<td>{{item.complement}}</td>
+										<!-- filter by zip -->
+										<td>{{item.zip}}</td>
+										<!-- filter by city -->
+										<td>{{item.city}}</td>
+										<!-- filter by state -->
+										<td>{{item.state}}</td>
+										<!-- filter by country -->
+										<td>{{item.country}}</td>
+
+
+										<td>
+											<div ng-click="showEdit(item.id)" data-toggle="tooltip"
+												title="{{'bimbuildui_home_edit' | translate}}">
+												<span class="glyphicon glyphicon-pencil"></span>
+											</div>
+										</td>
+										<td>
+											<div ng-click="delete(item.id)" data-toggle="tooltip"
+												title="{{'bimbuildui_home_delete' | translate}}">
+												<span class="glyphicon glyphicon-trash"></span>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- panel-footer -->
+					<div class="panel-footer"></div>
+				</div>
+			</div>
+		</div>
+		<!-- /.box-body -->
+		<div class="box-footer"></div>
+		<!-- /.box-footer-->
+	</div>
+	<!-- /.box -->
+
+</section>
+<!-- /.content -->

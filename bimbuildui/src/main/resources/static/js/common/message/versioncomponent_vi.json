@@ -1,0 +1,21 @@
+{
+	"bimbuildui_version_title": "Version",
+	"bimbuildui_version_idproduct": "idproduct",
+	"bimbuildui_version_idcontact": "idcontact",
+	"bimbuildui_version_idresource": "idresource",
+	"bimbuildui_version_name": "name",
+	"bimbuildui_version_description": "description",
+	"bimbuildui_version_creationdate": "creationdate",
+	"bimbuildui_version_idle": "idle",
+	"bimbuildui_version_initialeisdate": "initialeisdate",
+	"bimbuildui_version_plannedeisdate": "plannedeisdate",
+	"bimbuildui_version_realeisdate": "realeisdate",
+	"bimbuildui_version_initialenddate": "initialenddate",
+	"bimbuildui_version_plannedenddate": "plannedenddate",
+	"bimbuildui_version_realenddate": "realenddate",
+	"bimbuildui_version_iseis": "iseis",
+	"bimbuildui_version_scope": "scope",
+	"bimbuildui_version_versionnumber": "versionnumber",
+	"bimbuildui_version_iduser": "iduser",
+	"bimbuildui_version_idversiontype": "idversiontype"
+}

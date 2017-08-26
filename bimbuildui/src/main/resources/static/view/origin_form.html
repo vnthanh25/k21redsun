@@ -1,0 +1,135 @@
+
+<div>
+
+	<form name="frmOrigin" novalidate class="form-horizontal">
+		<div class="panel panel-default">
+			<!-- Top actions -->
+			<div class="panel-heading">
+				<div class="row">
+				
+					<div class="btn btn-link pull-left" ng-click="list()">{{'bimbuildui_origin_title' | translate}}</div>
+					<div class="btn-group pull-right">
+						<button class="btn btn-info" ng-click="save()" data-toggle="tooltip" title="{{'bimbuildui_home_save' | translate}}">
+							<span class="glyphicon glyphicon-floppy-disk"></span>
+						</button>
+						<button class="btn btn-info" ng-click="create()" data-toggle="tooltip" title="{{'bimbuildui_home_create' | translate}}">
+							<span class="glyphicon glyphicon-plus"></span>
+						</button>
+						<button class="btn btn-info" ng-click="closeDialog()" data-toggle="tooltip" title="{{'bimbuildui_home_close' | translate}}">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+			<!-- Alert Message -->
+			<div id="alertMessage" class="alert" style="display: none">
+				<strong>{{alertMessage}}</strong>
+			</div>
+			<!-- Context -->
+			<div class="panel-body">
+				<div class="row">
+					
+					
+						<div class="form-vertical">
+							<!-- origintype -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-3" for="origintype">{{'bimbuildui_origin_origintype' | translate}}</label>
+								<div class="input-group col-sm-3" ng-class="{ 'has-error': (frmOrigin.origintype.$touched || frmOrigin.origintype.$dirty || frmDirty) && frmOrigin.origintype.$invalid }">
+									<input class="form-control" type="text" id="origintype" name="origintype" ng-model="origin.origintype" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmOrigin.origintype.$invalid">
+										<validation-tooltip target="origintype">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /origintype -->
+							<!-- originid -->
+							<!-- <div class="form-group col-sm-12">
+								<label class="control-label col-sm-3" for="originid">{{'bimbuildui_origin_originid' | translate}}</label>
+								<div class="input-group col-sm-3" ng-class="{ 'has-error': (frmOrigin.originid.$touched || frmOrigin.originid.$dirty || frmDirty) && frmOrigin.originid.$invalid }">
+									<input class="form-control" type="text" id="originid" name="originid" ng-model="origin.originid" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmOrigin.originid.$invalid">
+										<validation-tooltip target="originid">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /originid -->
+							<!-- reftype -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-3" for="reftype">{{'bimbuildui_origin_reftype' | translate}}</label>
+								<div class="input-group col-sm-3" ng-class="{ 'has-error': (frmOrigin.reftype.$touched || frmOrigin.reftype.$dirty || frmDirty) && frmOrigin.reftype.$invalid }">
+									<input class="form-control" type="text" id="reftype" name="reftype" ng-model="origin.reftype" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmOrigin.reftype.$invalid">
+										<validation-tooltip target="reftype">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /reftype -->
+							<!-- refid -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-3" for="refid">{{'bimbuildui_origin_refid' | translate}}</label>
+								<div class="input-group col-sm-3" ng-class="{ 'has-error': (frmOrigin.refid.$touched || frmOrigin.refid.$dirty || frmDirty) && frmOrigin.refid.$invalid }">
+									<input class="form-control" type="text" id="refid" name="refid" ng-model="origin.refid" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmOrigin.refid.$invalid">
+										<validation-tooltip target="refid">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /refid -->
+							<!-- idle -->
+							<!-- <div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="idle">{{'bimbuildui_origin_idle' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmOrigin.idle.$touched || frmOrigin.idle.$dirty || frmDirty) && frmOrigin.idle.$invalid }">
+									<input class="form-control" type="text" id="idle" name="idle" ng-model="origin.idle" required maxlength="50"></input>
+
+								</div>
+							</div> -->
+							<!-- /idle -->
+						</div>
+					
+					
+					
+				</div>
+			</div>
+			<!-- Bottom actions -->
+			<div class="panel-footer">
+				<div class="row">
+					<div class="btn-group pull-right">
+						<button class="btn btn-info" ng-click="save()" data-toggle="tooltip" title="{{'bimbuildui_home_save' | translate}}">
+							<span class="glyphicon glyphicon-floppy-disk"></span>
+						</button>
+						<button class="btn btn-info" ng-click="create()" data-toggle="tooltip" title="{{'bimbuildui_home_create' | translate}}">
+							<span class="glyphicon glyphicon-plus"></span>
+						</button>
+						<button class="btn btn-info" ng-click="closeDialog()" data-toggle="tooltip" title="{{'bimbuildui_home_close' | translate}}">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

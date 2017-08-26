@@ -1,0 +1,93 @@
+
+.skin-blue .sidebar-menu>li>div:hover, .skin-blue .sidebar-menu>li.active>div {
+	color: #fff;
+    background: #1e282c;
+    border-left-color: #3c8dbc;
+}
+
+.skin-blue .sidebar-menu>li>div {
+    border-left: 3px solid transparent;
+    margin-right: 1px;
+    color: #999;
+}
+
+<<<<<<< .mine
+md-dialog {
+	max-width: 100% !important;
+	max-height: 100% !important;
+}
+||||||| .r105
+=======
+.skin-blue .treeview-menu>li>div:hover, .skin-blue .sidebar-menu>li.active>div {
+	color: #fff;
+    background: #1e282c;
+    border-left-color: #3c8dbc;
+}
+
+.skin-blue .treeview-menu>li>div {
+    border-left: 3px solid transparent;
+    margin-right: 1px;
+    color: #999;
+}
+
+>>>>>>> .r114
+div.md-dialog-container {
+	z-index: 2000 !important;
+}
+
+.md-virtual-repeat-container.md-autocomplete-suggestions-container {
+	z-index: 2010 !important;
+}
+
+/* md-dialog */
+
+md-dialog {
+	max-width: 100% !important;
+	max-height: 100% !important;
+}
+
+.md-dialog-small {
+	max-width: 80% !important;
+	max-height: 80% !important;
+}
+
+.md-dialog-full {
+	max-width: 100% !important;
+	max-height: 100% !important;
+}
+
+/* bootstrap icon */
+
+<<<<<<< .mine
+.rotate90 {
+||||||| .r105
+.searchiconrotate {
+=======
+.rotate45 {
+>>>>>>> .r114
+  -webkit-transition: -webkit-transform .4s ease-in-out;
+          transition:         transform .4s ease-in-out;
+}
+<<<<<<< .mine
+.rotate90:hover {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+||||||| .r105
+.searchiconrotate:hover {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+=======
+.rotate45:hover {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+>>>>>>> .r114
+}
+
+.rotate90 {
+  -webkit-transition: -webkit-transform .4s ease-in-out;
+          transition:         transform .4s ease-in-out;
+}
+.rotate90:hover {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}

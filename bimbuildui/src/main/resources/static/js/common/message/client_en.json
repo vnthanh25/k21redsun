@@ -1,0 +1,22 @@
+{
+	"bimbuildui_client_title": "Client",
+	"bimbuildui_client_name": "customer name",
+	"bimbuildui_client_description": "description",
+	"bimbuildui_client_clientcode": "customer code",
+	"bimbuildui_client_idle": "closed",
+	"bimbuildui_client_paymentdelay": "payment deadline",
+	"bimbuildui_client_tax": "tax",
+	"bimbuildui_client_designation": "designation",
+	"bimbuildui_client_street": "street",
+	"bimbuildui_client_complement": "complement",
+	"bimbuildui_client_zip": "zip code",
+	"bimbuildui_client_city": "city",
+	"bimbuildui_client_state": "state",
+	"bimbuildui_client_country": "country",
+	"bimbuildui_client_idclienttype": "idclienttype",
+	"bimbuildui_client_paymentdelayendofmonth": "paymentdelayendofmonth",
+	"bimbuildui_client_numtax": "tax number",
+	"bimbuildui_client_idpaymentdelay": "idpaymentdelay",
+	"bimbuildui_client_type": "type of customer"
+	
+}

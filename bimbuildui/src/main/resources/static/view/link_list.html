@@ -1,0 +1,215 @@
+<section class="content-header">
+</section>
+
+<!-- Main content -->
+<section class="content">
+	
+	<!-- Default box -->
+	<div class="box">
+		<div class="box-header with-border">
+			<h3 class="box-title">{{'bimbuildui_link_title' | translate}}</h3>
+	      <div class="box-tools pull-right">
+	        <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+	        <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+	      </div>
+		</div>
+		<div class="box-body">
+	
+			<div ng-init="initList()">
+				<!-- panel -->
+				<div class="panel panel-default">
+					<!-- panel-heading -->
+					<div class="panel-heading">
+					
+						<!-- top actions -->
+						<div class="row">
+							<div class="pull-left">
+								<dir-pagination-controls
+									   max-size="8"
+									   direction-links="true"
+									   boundary-links="true" 
+									   on-page-change="listWithCriteriasByPage(newPageNumber)" >
+								</dir-pagination-controls>
+							</div>
+							<div class="btn-group pull-right">
+								<button class="btn btn-info" ng-click="showCreate()" data-toggle="tooltip" title="{{'bimbuildui_home_create' | translate}}">
+									<span class="glyphicon glyphicon-plus"></span>
+								</button>
+							</div>
+						</div>
+	
+						<!-- filter	 -->
+						<div class="row">
+							<!-- filter by ref1type -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.ref1type" class="inpput-sm" placeholder="{{'bimbuildui_link_ref1type' | translate}}" />
+							</div>
+							<!-- filter by ref1id -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.ref1id" class="inpput-sm" placeholder="{{'bimbuildui_link_ref1id' | translate}}" />
+							</div>
+							<!-- filter by ref2type -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.ref2type" class="inpput-sm" placeholder="{{'bimbuildui_link_ref2type' | translate}}" />
+							</div>
+							<!-- filter by ref2id -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.ref2id" class="inpput-sm" placeholder="{{'bimbuildui_link_ref2id' | translate}}" />
+							</div>
+							<!-- filter by comment -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.comment" class="inpput-sm" placeholder="{{'bimbuildui_link_comment' | translate}}" />
+							</div>
+							<!-- filter by creationdate -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.creationdate" class="inpput-sm" placeholder="{{'bimbuildui_link_creationdate' | translate}}" />
+							</div>
+							<!-- filter by iduser -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.iduser" class="inpput-sm" placeholder="{{'bimbuildui_link_iduser' | translate}}" />
+							</div>
+							<!-- filter button -->
+							<div class="col-md-2 btn-group">
+								<button type="button" class="btn btn-default" ng-click="listWithCriteriasByPage(1)" data-toggle="tooltip" title="{{'bimbuildui_home_filter' | translate}}"><span class="glyphicon glyphicon-filter"></span></button>
+								<button type="button" class="btn btn-default" ng-click="clearFilter()" data-toggle="tooltip" title="{{'bimbuildui_home_filter_clear' | translate}}"><span class="glyphicon glyphicon-remove"></span></button>
+							</div>
+						</div>
+	
+					</div>
+				
+					<!-- list of content -->
+					<div class="panel-body">
+						<div class="table-responsive">
+							<table class="table table-bordered table-striped">
+								<thead>
+									<tr>
+										<!-- filter by ref1type -->
+										<th ng-click="sortBy('ref1type')">{{'bimbuildui_link_ref1type' | translate}}
+											<span ng-show="sortKey === 'ref1type'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by ref1id -->
+										<th ng-click="sortBy('ref1id')">{{'bimbuildui_link_ref1id' | translate}}
+											<span ng-show="sortKey === 'ref1id'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by ref2type -->
+										<th ng-click="sortBy('ref2type')">{{'bimbuildui_link_ref2type' | translate}}
+											<span ng-show="sortKey === 'ref2type'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by ref2id -->
+										<th ng-click="sortBy('ref2id')">{{'bimbuildui_link_ref2id' | translate}}
+											<span ng-show="sortKey === 'ref2id'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by comment -->
+										<th ng-click="sortBy('comment')">{{'bimbuildui_link_comment' | translate}}
+											<span ng-show="sortKey === 'comment'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by creationdate -->
+										<th ng-click="sortBy('creationdate')">{{'bimbuildui_link_creationdate' | translate}}
+											<span ng-show="sortKey === 'creationdate'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by iduser -->
+										<th ng-click="sortBy('iduser')">{{'bimbuildui_link_iduser' | translate}}
+											<span ng-show="sortKey === 'iduser'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<th/>
+										<th/>
+									</tr>
+								</thead>
+								<tbody>
+									<tr dir-paginate="item in links | orderBy:sortKey:reverse | itemsPerPage:page.pageSize" current-page="page.currentPage" total-items="page.totalElements">
+										<!-- filter by ref1type -->
+										<td>{{item.ref1type}}</td>
+										<!-- filter by ref1id -->
+										<td>{{item.ref1id}}</td>
+										<!-- filter by ref2type -->
+										<td>{{getLinknameName(item.ref2type}}</td>
+										<!-- filter by ref2id -->
+										<td>{{item.ref2id}}</td>
+										<!-- filter by comment -->
+										<td>{{item.comment}}</td>
+										<!-- filter by creationdate -->
+										<td>{{item.creationdate}}</td>
+										<!-- filter by iduser -->
+										<td>{{item.iduser}}</td>
+										<td>
+											<div ng-click="showForm(item.id)" data-toggle="tooltip" title="{{'bimbuildui_home_edit' | translate}}">
+												<span class="glyphicon glyphicon-pencil"></span>
+											</div>
+										</td>
+										<td>
+											<div ng-click="delete(item.id)" data-toggle="tooltip" title="{{'bimbuildui_home_delete' | translate}}">
+												<span class="glyphicon glyphicon-trash"></span>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- panel-footer -->
+					<div class="panel-footer">
+					
+						<!-- filter	 -->
+						<div class="row">
+							<!-- filter by ref1type -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.ref1type" class="inpput-sm" placeholder="{{'bimbuildui_link_ref1type' | translate}}" />
+							</div>
+							<!-- filter by ref1id -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.ref1id" class="inpput-sm" placeholder="{{'bimbuildui_link_ref1id' | translate}}" />
+							</div>
+							<!-- filter by ref2type -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.ref2type" class="inpput-sm" placeholder="{{'bimbuildui_link_ref2type' | translate}}" />
+							</div>
+							<!-- filter by ref2id -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.ref2id" class="inpput-sm" placeholder="{{'bimbuildui_link_ref2id' | translate}}" />
+							</div>
+							<!-- filter by comment -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.comment" class="inpput-sm" placeholder="{{'bimbuildui_link_comment' | translate}}" />
+							</div>
+							<!-- filter by creationdate -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.creationdate" class="inpput-sm" placeholder="{{'bimbuildui_link_creationdate' | translate}}" />
+							</div>
+							<!-- filter by iduser -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.iduser" class="inpput-sm" placeholder="{{'bimbuildui_link_iduser' | translate}}" />
+							</div>
+							<!-- filter button -->
+							<div class="col-md-2 btn-group">
+								<button type="button" class="btn btn-default" ng-click="listWithCriteriasByPage(1)" data-toggle="tooltip" title="{{'bimbuildui_home_filter' | translate}}"><span class="glyphicon glyphicon-filter"></span></button>
+								<button type="button" class="btn btn-default" ng-click="clearFilter()" data-toggle="tooltip" title="{{'bimbuildui_home_filter_clear' | translate}}"><span class="glyphicon glyphicon-remove"></span></button>
+							</div>
+						</div>
+						
+						<!-- bottom actions -->
+						<div class="row">
+						
+							<div class="pull-left">
+								<dir-pagination-controls
+									   max-size="8"
+									   direction-links="true"
+									   boundary-links="true" >
+								</dir-pagination-controls>
+							</div>
+							<div class="btn-group pull-right">
+								<button class="btn btn-info" ng-click="showCreate()" data-toggle="tooltip" title="{{'bimbuildui_home_create' | translate}}">
+									<span class="glyphicon glyphicon-plus"></span>
+								</button>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div><!-- /.box-body -->
+	    <div class="box-footer">
+	      Footer
+	    </div><!-- /.box-footer-->
+	  </div><!-- /.box -->
+
+</section><!-- /.content -->

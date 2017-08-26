@@ -1,0 +1,596 @@
+
+<div>
+
+	<form name="frmAssignment" novalidate class="form-horizontal">
+		<div class="panel panel-default">
+			<!-- Top actions -->
+			<div class="panel-heading">
+				<div class="row">
+
+					<div class="btn btn-link pull-left" ng-click="list()">{{'bimbuildui_assignment_title'
+						| translate}}</div>
+					<div class="btn-group pull-right">
+						<button class="btn btn-info" ng-click="save()"
+							data-toggle="tooltip"
+							title="{{'bimbuildui_home_save' | translate}}">
+							<span class="glyphicon glyphicon-floppy-disk"></span>
+						</button>
+						<button class="btn btn-info" ng-click="create()"
+							data-toggle="tooltip"
+							title="{{'bimbuildui_home_create' | translate}}">
+							<span class="glyphicon glyphicon-plus"></span>
+						</button>
+						<button class="btn btn-info" ng-click="closeDialog()"
+							data-toggle="tooltip"
+							title="{{'bimbuildui_home_close' | translate}}">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+			<!-- Alert Message -->
+			<div id="alertMessage" class="alert" style="display: none">
+				<strong>{{alertMessage}}</strong>
+			</div>
+			<!-- Context -->
+			<div class="panel-body">
+				<div class="row">
+
+					<!-- First column -->
+					<div class="col-sm-6">
+						<div class="form-vertical">
+							<!-- idresource -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="idresource">{{'bimbuildui_assignment_idresource'
+									| translate}}</label>
+								<div class="input-group col-sm-6"
+									ng-class="{ 'has-error': (frmAssignment.idresource.$touched || frmAssignment.idresource.$dirty || frmDirty) && frmAssignment.idresource.$invalid }">
+									<input class="form-control" type="text" id="idresource"
+										name="idresource" ng-model="assignment.idresource" required
+										maxlength="50"></input>
+									<!--									
+									<div class="input-group-addon" ng-show="frmAssignment.idresource.$invalid">
+										<validation-tooltip target="idresource">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /idresource -->
+							<!-- idrole -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="idrole">{{'bimbuildui_assignment_idrole'
+									| translate}}</label>
+								<div class="input-group col-sm-6"
+									ng-class="{ 'has-error': (frmAssignment.idrole.$touched || frmAssignment.idrole.$dirty || frmDirty) && frmAssignment.idrole.$invalid }">
+									<input class="form-control" type="text" id="idrole"
+										name="idrole" ng-model="assignment.idrole" required
+										maxlength="50"></input>
+									<!--									
+									<div class="input-group-addon" ng-show="frmAssignment.idrole.$invalid">
+										<validation-tooltip target="idrole">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /idrole -->
+							<!-- dailycost -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="dailycost">{{'bimbuildui_assignment_dailycost'
+									| translate}}</label>
+								<div class="input-group col-sm-3"
+									ng-class="{ 'has-error': (frmAssignment.dailycost.$touched || frmAssignment.dailycost.$dirty || frmDirty) && frmAssignment.dailycost.$invalid }">
+									<input class="form-control" type="text" id="dailycost"
+										name="dailycost" ng-model="assignment.dailycost" required
+										maxlength="50"> </input><span class="input-group-addon">{{'bimbuildui_assignment_salary'
+										| translate}}</span>
+									<!--									
+									<div class="input-group-addon" ng-show="frmAssignment.dailycost.$invalid">
+										<validation-tooltip target="dailycost">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /dailycost -->
+							<!-- newdailycost -->
+							<!-- <div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="newdailycost">{{'bimbuildui_assignment_newdailycost' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAssignment.newdailycost.$touched || frmAssignment.newdailycost.$dirty || frmDirty) && frmAssignment.newdailycost.$invalid }">
+									<input class="form-control" type="text" id="newdailycost" name="newdailycost" ng-model="assignment.newdailycost" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmAssignment.newdailycost.$invalid">
+										<validation-tooltip target="newdailycost">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /newdailycost -->
+							<!-- idproject -->
+							<!-- <div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="idproject">{{'bimbuildui_assignment_idproject' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAssignment.idproject.$touched || frmAssignment.idproject.$dirty || frmDirty) && frmAssignment.idproject.$invalid }">
+									<input class="form-control" type="text" id="idproject" name="idproject" ng-model="assignment.idproject" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmAssignment.idproject.$invalid">
+										<validation-tooltip target="idproject">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /idproject -->
+							<!-- reftype -->
+							<!-- <div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="reftype">{{'bimbuildui_assignment_reftype' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAssignment.reftype.$touched || frmAssignment.reftype.$dirty || frmDirty) && frmAssignment.reftype.$invalid }">
+									<input class="form-control" type="text" id="reftype" name="reftype" ng-model="assignment.reftype" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmAssignment.reftype.$invalid">
+										<validation-tooltip target="reftype">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /reftype -->
+							<!-- refid -->
+							<!-- <div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="refid">{{'bimbuildui_assignment_refid' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAssignment.refid.$touched || frmAssignment.refid.$dirty || frmDirty) && frmAssignment.refid.$invalid }">
+									<input class="form-control" type="text" id="refid" name="refid" ng-model="assignment.refid" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmAssignment.refid.$invalid">
+										<validation-tooltip target="refid">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /refid -->
+							<!-- rate -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="rate">{{'bimbuildui_assignment_rate'
+									| translate}}</label>
+								<div class="input-group col-sm-3"
+									ng-class="{ 'has-error': (frmAssignment.rate.$touched || frmAssignment.rate.$dirty || frmDirty) && frmAssignment.rate.$invalid }">
+									<input class="form-control" type="text" id="rate" name="rate"
+										ng-model="assignment.rate" required maxlength="50"></input>
+									<!--									
+									<div class="input-group-addon" ng-show="frmAssignment.rate.$invalid">
+										<validation-tooltip target="rate">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /rate -->
+							<!-- assignedwork -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="assignedwork">{{'bimbuildui_assignment_assignedwork'
+									| translate}}</label>
+								<div class="input-group col-sm-3"
+									ng-class="{ 'has-error': (frmAssignment.assignedwork.$touched || frmAssignment.assignedwork.$dirty || frmDirty) && frmAssignment.assignedwork.$invalid }">
+									<input class="form-control" type="text" id="assignedwork"
+										name="assignedwork" ng-model="assignment.assignedwork"
+										required maxlength="50"></input> <span
+										class="input-group-addon">{{'bimbuildui_assignment_workday'
+										| translate}}</span>
+									<!--									
+									<div class="input-group-addon" ng-show="frmAssignment.assignedwork.$invalid">
+										<validation-tooltip target="assignedwork">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /assignedwork -->
+							<!-- realwork -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="realwork">{{'bimbuildui_assignment_realwork'
+									| translate}}</label>
+								<div class="input-group col-sm-3"
+									ng-class="{ 'has-error': (frmAssignment.realwork.$touched || frmAssignment.realwork.$dirty || frmDirty) && frmAssignment.realwork.$invalid }">
+									<input class="form-control" type="text" id="realwork"
+										name="realwork" ng-model="assignment.realwork" required
+										maxlength="50"></input> <span class="input-group-addon">{{'bimbuildui_assignment_workday'
+										| translate}}</span>
+									<!--									
+									<div class="input-group-addon" ng-show="frmAssignment.realwork.$invalid">
+										<validation-tooltip target="realwork">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /realwork -->
+							<!-- leftwork -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="leftwork">{{'bimbuildui_assignment_leftwork'
+									| translate}}</label>
+								<div class="input-group col-sm-3"
+									ng-class="{ 'has-error': (frmAssignment.leftwork.$touched || frmAssignment.leftwork.$dirty || frmDirty) && frmAssignment.leftwork.$invalid }">
+									<input class="form-control" type="text" id="leftwork"
+										name="leftwork" ng-model="assignment.leftwork" required
+										maxlength="50"></input> <span class="input-group-addon">{{'bimbuildui_assignment_workday'
+										| translate}}</span>
+									<!--									
+									<div class="input-group-addon" ng-show="frmAssignment.leftwork.$invalid">
+										<validation-tooltip target="leftwork">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /leftwork -->
+							<!-- plannedwork -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="plannedwork">{{'bimbuildui_assignment_plannedwork'
+									| translate}}</label>
+								<div class="input-group col-sm-3"
+									ng-class="{ 'has-error': (frmAssignment.plannedwork.$touched || frmAssignment.plannedwork.$dirty || frmDirty) && frmAssignment.plannedwork.$invalid }">
+									<input class="form-control" type="text" id="plannedwork"
+										name="plannedwork" ng-model="assignment.plannedwork" required
+										maxlength="50"></input> <span class="input-group-addon">{{'bimbuildui_assignment_workday'
+										| translate}}</span>
+									<!--									
+									<div class="input-group-addon" ng-show="frmAssignment.plannedwork.$invalid">
+										<validation-tooltip target="plannedwork">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /plannedwork -->
+							<!-- idle -->
+							<!-- <div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="idle">{{'bimbuildui_assignment_idle' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAssignment.idle.$touched || frmAssignment.idle.$dirty || frmDirty) && frmAssignment.idle.$invalid }">
+									<input class="form-control" type="text" id="idle" name="idle" ng-model="assignment.idle" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmAssignment.idle.$invalid">
+										<validation-tooltip target="idle">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /idle -->
+							<!-- realstartdate -->
+							<!-- <div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="realstartdate">{{'bimbuildui_assignment_realstartdate' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAssignment.realstartdate.$touched || frmAssignment.realstartdate.$dirty || frmDirty) && frmAssignment.realstartdate.$invalid }">
+									<input class="form-control" type="text" id="realstartdate" name="realstartdate" ng-model="assignment.realstartdate" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmAssignment.realstartdate.$invalid">
+										<validation-tooltip target="realstartdate">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /realstartdate -->
+							<!-- realenddate -->
+							<!-- <div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="realenddate">{{'bimbuildui_assignment_realenddate' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAssignment.realenddate.$touched || frmAssignment.realenddate.$dirty || frmDirty) && frmAssignment.realenddate.$invalid }">
+									<input class="form-control" type="text" id="realenddate" name="realenddate" ng-model="assignment.realenddate" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmAssignment.realenddate.$invalid">
+										<validation-tooltip target="realenddate">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /realenddate -->
+							<!-- comment -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="comment">{{'bimbuildui_assignment_comment'
+									| translate}}</label>
+								<div class="input-group col-sm-6"
+									ng-class="{ 'has-error': (frmAssignment.comment.$touched || frmAssignment.comment.$dirty || frmDirty) && frmAssignment.comment.$invalid }">
+									<input class="form-control" type="text" id="comment"
+										name="comment" ng-model="assignment.comment" required
+										maxlength="50"></input>
+									<!--									
+									<div class="input-group-addon" ng-show="frmAssignment.comment.$invalid">
+										<validation-tooltip target="comment">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /comment -->
+							<!-- plannedstartdate -->
+							<!-- <div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="plannedstartdate">{{'bimbuildui_assignment_plannedstartdate' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAssignment.plannedstartdate.$touched || frmAssignment.plannedstartdate.$dirty || frmDirty) && frmAssignment.plannedstartdate.$invalid }">
+									<input class="form-control" type="text" id="plannedstartdate" name="plannedstartdate" ng-model="assignment.plannedstartdate" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmAssignment.plannedstartdate.$invalid">
+										<validation-tooltip target="plannedstartdate">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /plannedstartdate -->
+							<!-- plannedenddate -->
+							<!-- <div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="plannedenddate">{{'bimbuildui_assignment_plannedenddate' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAssignment.plannedenddate.$touched || frmAssignment.plannedenddate.$dirty || frmDirty) && frmAssignment.plannedenddate.$invalid }">
+									<input class="form-control" type="text" id="plannedenddate" name="plannedenddate" ng-model="assignment.plannedenddate" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmAssignment.plannedenddate.$invalid">
+										<validation-tooltip target="plannedenddate">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /plannedenddate -->
+
+
+							<!-- assignedcost -->
+							<!-- <div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="assignedcost">{{'bimbuildui_assignment_assignedcost' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAssignment.assignedcost.$touched || frmAssignment.assignedcost.$dirty || frmDirty) && frmAssignment.assignedcost.$invalid }">
+									<input class="form-control" type="text" id="assignedcost" name="assignedcost" ng-model="assignment.assignedcost" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmAssignment.assignedcost.$invalid">
+										<validation-tooltip target="assignedcost">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /assignedcost -->
+							<!-- realcost -->
+							<!-- 	<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="realcost">{{'bimbuildui_assignment_realcost' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAssignment.realcost.$touched || frmAssignment.realcost.$dirty || frmDirty) && frmAssignment.realcost.$invalid }">
+									<input class="form-control" type="text" id="realcost" name="realcost" ng-model="assignment.realcost" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmAssignment.realcost.$invalid">
+										<validation-tooltip target="realcost">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /realcost -->
+							<!-- leftcost -->
+							<!-- <div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="leftcost">{{'bimbuildui_assignment_leftcost' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAssignment.leftcost.$touched || frmAssignment.leftcost.$dirty || frmDirty) && frmAssignment.leftcost.$invalid }">
+									<input class="form-control" type="text" id="leftcost" name="leftcost" ng-model="assignment.leftcost" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmAssignment.leftcost.$invalid">
+										<validation-tooltip target="leftcost">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /leftcost -->
+							<!-- plannedcost -->
+							<!-- 	<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="plannedcost">{{'bimbuildui_assignment_plannedcost' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAssignment.plannedcost.$touched || frmAssignment.plannedcost.$dirty || frmDirty) && frmAssignment.plannedcost.$invalid }">
+									<input class="form-control" type="text" id="plannedcost" name="plannedcost" ng-model="assignment.plannedcost" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmAssignment.plannedcost.$invalid">
+										<validation-tooltip target="plannedcost">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /plannedcost -->
+							<!-- billedwork -->
+							<!-- <div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="billedwork">{{'bimbuildui_assignment_billedwork' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAssignment.billedwork.$touched || frmAssignment.billedwork.$dirty || frmDirty) && frmAssignment.billedwork.$invalid }">
+									<input class="form-control" type="text" id="billedwork" name="billedwork" ng-model="assignment.billedwork" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmAssignment.billedwork.$invalid">
+										<validation-tooltip target="billedwork">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /billedwork -->
+							<!-- notplannedwork -->
+							<!-- 	<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="notplannedwork">{{'bimbuildui_assignment_notplannedwork' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAssignment.notplannedwork.$touched || frmAssignment.notplannedwork.$dirty || frmDirty) && frmAssignment.notplannedwork.$invalid }">
+									<input class="form-control" type="text" id="notplannedwork" name="notplannedwork" ng-model="assignment.notplannedwork" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmAssignment.notplannedwork.$invalid">
+										<validation-tooltip target="notplannedwork">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /notplannedwork -->
+							<!-- plannedstartfraction -->
+							<!-- 	<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="plannedstartfraction">{{'bimbuildui_assignment_plannedstartfraction' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAssignment.plannedstartfraction.$touched || frmAssignment.plannedstartfraction.$dirty || frmDirty) && frmAssignment.plannedstartfraction.$invalid }">
+									<input class="form-control" type="text" id="plannedstartfraction" name="plannedstartfraction" ng-model="assignment.plannedstartfraction" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmAssignment.plannedstartfraction.$invalid">
+										<validation-tooltip target="plannedstartfraction">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /plannedstartfraction -->
+							<!-- plannedendfraction -->
+							<!-- 	<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="plannedendfraction">{{'bimbuildui_assignment_plannedendfraction' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAssignment.plannedendfraction.$touched || frmAssignment.plannedendfraction.$dirty || frmDirty) && frmAssignment.plannedendfraction.$invalid }">
+									<input class="form-control" type="text" id="plannedendfraction" name="plannedendfraction" ng-model="assignment.plannedendfraction" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmAssignment.plannedendfraction.$invalid">
+										<validation-tooltip target="plannedendfraction">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /plannedendfraction -->
+							<!-- isnotimputable -->
+							<!-- 	<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="isnotimputable">{{'bimbuildui_assignment_isnotimputable' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAssignment.isnotimputable.$touched || frmAssignment.isnotimputable.$dirty || frmDirty) && frmAssignment.isnotimputable.$invalid }">
+									<input class="form-control" type="text" id="isnotimputable" name="isnotimputable" ng-model="assignment.isnotimputable" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmAssignment.isnotimputable.$invalid">
+										<validation-tooltip target="isnotimputable">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /isnotimputable -->
+							<!-- optional -->
+							<!-- 	<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="optional">{{'bimbuildui_assignment_optional' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmAssignment.optional.$touched || frmAssignment.optional.$dirty || frmDirty) && frmAssignment.optional.$invalid }">
+									<input class="form-control" type="text" id="optional" name="optional" ng-model="assignment.optional" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmAssignment.optional.$invalid">
+										<validation-tooltip target="optional">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /optional -->
+						</div>
+					</div>
+					<!-- /First column -->
+
+					<!-- Second column -->
+					<div class="col-sm-6">
+						<div class="form-vertical"></div>
+					</div>
+					<!-- /Second column -->
+				</div>
+			</div>
+			<!-- Bottom actions -->
+			<div class="panel-footer">
+				<div class="row">
+					<div class="btn-group pull-right">
+						<button class="btn btn-info" ng-click="save()"
+							data-toggle="tooltip"
+							title="{{'bimbuildui_home_save' | translate}}">
+							<span class="glyphicon glyphicon-floppy-disk"></span>
+						</button>
+						<button class="btn btn-info" ng-click="create()"
+							data-toggle="tooltip"
+							title="{{'bimbuildui_home_create' | translate}}">
+							<span class="glyphicon glyphicon-plus"></span>
+						</button>
+						<button class="btn btn-info" ng-click="closeDialog()"
+							data-toggle="tooltip"
+							title="{{'bimbuildui_home_close' | translate}}">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

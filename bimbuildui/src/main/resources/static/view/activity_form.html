@@ -1,0 +1,1208 @@
+
+<div>
+	<form name="frmActivity" novalidate class="form-horizontal">
+		<div class="panel panel-default">
+			<!-- Top actions -->
+			<div class="panel-heading">
+				<div class="row">
+					<div class="btn btn-link pull-left" ng-click="list()">{{'bimbuildui_activity_title'
+						| translate}}</div>
+					<div class="btn-group pull-right">
+						<button class="btn btn-info" ng-click="save()"
+							data-toggle="tooltip"
+							title="{{'bimbuildui_home_save' | translate}}">
+							<span class="glyphicon glyphicon-floppy-disk"></span>
+						</button>
+						<button class="btn btn-info" ng-click="create()"
+							data-toggle="tooltip"
+							title="{{'bimbuildui_home_create' | translate}}">
+							<span class="glyphicon glyphicon-plus"></span>
+						</button>
+						<button class="btn btn-info" ng-click="closeDialog()"
+							data-toggle="tooltip"
+							title="{{'bimbuildui_home_close' | translate}}">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+			<!-- Alert Message -->
+			<div id="alertMessage" class="alert" style="display: none">
+				<strong>{{alertMessage}}</strong>
+			</div>
+			<!-- Context -->
+			<div class="panel-body">
+				<div class="row">
+					<!-- First column -->
+					<div class="col-sm-6">
+						<!-- collapse Description -->
+						<div class="panel panel-default">
+							<div class="panel-heading" data-toggle="collapse"
+								href="#description1">
+								<h4 class="panel-title">
+									{{'bimbuildui_activity_description1' | translate}} <i
+										class="fa fa-angle-down rotate-icon"></i>
+								</h4>
+							</div>
+							<div id="description1" class="panel-collapse collapse in">
+								<div class="panel-body">
+									<!-- name -->
+									<div class="form-group col-sm-12">
+										<div class="col-sm-4">
+											<p class="control-label" for="name">{{'bimbuildui_activity_name'
+												| translate}}</p>
+										</div>
+										<div class="col-sm-8">
+											<div class="input-group col-sm-12"
+												ng-class="{ 'has-error': (frmActivity.name.$touched || frmActivity.name.$dirty || frmDirty) && frmActivity.name.$invalid }">
+												<input class="form-control" type="text" id="name"
+													name="name" ng-model="activity.name" required
+													maxlength="50"></input>
+												<!--									
+									<div class="input-group-addon" ng-show="frmActivity.name.$invalid">
+										<validation-tooltip target="name">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+									-->
+											</div>
+										</div>
+									</div>
+									<!-- /name -->
+									<!-- idactivitytype -->
+									<div class="form-group col-sm-12">
+										<div class="col-sm-4">
+											<p class="control-label" for="idactivitytype">{{'bimbuildui_activity_idactivitytype'
+												| translate}}</p>
+										</div>
+										<div class="col-sm-6">
+											<div class="input-group col-sm-12"
+												ng-class="{ 'has-error': (frmActivity.idactivitytype.$touched || frmActivity.idactivitytype.$dirty || frmDirty) && frmActivity.idactivitytype.$invalid }">
+												<md-autocomplete md-input-name="idactivitytype" required
+													ng-disabled="ctlidactivitytype.isDisabled"
+													md-no-cache="ctlidactivitytype.noCache"
+													md-selected-item="ctlidactivitytype.selectedItem"
+													md-search-text-change="ctlidactivitytype.searchTextChange(ctlidactivitytype.searchText)"
+													md-search-text="ctlidactivitytype.searchText"
+													md-selected-item-change="ctlidactivitytype.selectedItemChange(item)"
+													md-items="item in ctlidactivitytype.querySearch(ctlidactivitytype.searchText)"
+													md-item-text="item.activityname" md-min-length="0">
+												<md-item-template> <span
+													md-highlight-text="ctlidactivitytype.searchText"
+													md-highlight-flags="^i">{{item.activityname}}</span> </md-item-template> <md-not-found>
+												No items matching "{{ctlidactivitytype.searchText}}" were
+												found. <a
+													ng-click="ctlidactivitytype.newState(ctlidactivitytype.searchText)">Create
+													a new one!</a> </md-not-found> </md-autocomplete>
+												<!-- 	<input class="form-control" type="text"
+																	id="idactivitytype" name="idactivitytype"
+																	ng-model="activity.idactivitytype" maxlength="50"></input> -->
+											</div>
+										</div>
+										<!-- Search/view item -->
+										<div class="col-sm-1">
+											<span class="glyphicon glyphicon-search rotate90"
+												ng-click="showAssignment()" data-toggle="tooltip"
+												title="{{'bimbuildui_activity_searchview' | translate}}">
+											</span>
+										</div>
+										<!-- /Search/view item -->
+										<!-- go this element -->
+										<div class="col-sm-1">
+											<span class="glyphicon glyphicon-fast-forward"
+												ng-click="showAssignment()" data-toggle="tooltip"
+												title="{{' bimbuildui_activity_gothiselement' | translate}}">
+											</span>
+										</div>
+										<!-- /go this element -->
+									</div>
+									<!-- /idactivitytype -->
+									<!-- idproject -->
+									<div class="form-group col-sm-12">
+										<div class="col-sm-4">
+											<p class="control-label" for="idproject">{{'bimbuildui_activity_idproject'
+												| translate}}</p>
+										</div>
+										<div class="col-sm-6">
+											<div class="input-group col-sm-12"
+												ng-class="{ 'has-error': (frmActivity.idproject.$touched || frmActivity.idproject.$dirty || frmDirty) && frmActivity.idproject.$invalid }">
+												<md-autocomplete md-input-name="idproject" required
+													ng-disabled="ctlidproject.isDisabled"
+													md-no-cache="ctlidproject.noCache"
+													md-selected-item="ctlidproject.selectedItem"
+													md-search-text-change="ctlidproject.searchTextChange(ctlidproject.searchText)"
+													md-search-text="ctlidproject.searchText"
+													md-selected-item-change="ctlidproject.selectedItemChange(item)"
+													md-items="item in ctlidproject.querySearch(ctlidproject.searchText)"
+													md-item-text="item.projectname" md-min-length="0">
+												<md-item-template> <span
+													md-highlight-text="ctlidproject.searchText"
+													md-highlight-flags="^i">{{item.projectname}}</span> </md-item-template> <md-not-found>
+												No items matching "{{ctlidproject.searchText}}" were found.
+												<a ng-click="ctlidproject.newState(ctlidproject.searchText)">Create
+													a new one!</a> </md-not-found> </md-autocomplete>
+												<!-- <input class="form-control" type="text" id="idproject"
+																	name="idproject" ng-model="activity.idproject"
+																	maxlength="50"></input> -->
+											</div>
+										</div>
+										<!-- Search/view item -->
+										<div class="col-sm-1">
+											<span class="glyphicon glyphicon-search rotate90"
+												ng-click="showAssignment()" data-toggle="tooltip"
+												title="{{'bimbuildui_activity_searchview' | translate}}">
+											</span>
+										</div>
+										<!-- /Search/view item -->
+										<!-- go this element -->
+										<div class="col-sm-1">
+											<span class="glyphicon glyphicon-fast-forward"
+												ng-click="showAssignment()" data-toggle="tooltip"
+												title="{{' bimbuildui_activity_gothiselement' | translate}}">
+											</span>
+										</div>
+										<!-- /go this element -->
+									</div>
+									<!-- /idproject -->
+									<!-- externalreference -->
+									<div class="form-group col-sm-12">
+										<div class="col-sm-4">
+											<p class="control-label" for="externalreference">{{'bimbuildui_activity_externalreference'
+												| translate}}</p>
+										</div>
+										<div class="col-sm-8">
+											<div class="input-group col-sm-12"
+												ng-class="{ 'has-error': (frmActivity.externalreference.$touched || frmActivity.externalreference.$dirty || frmDirty) && frmActivity.externalreference.$invalid }">
+												<input class="form-control" type="text"
+													id="externalreference" name="externalreference"
+													ng-model="activity.externalreference" required
+													maxlength="50"></input>
+												<!--									
+									<div class="input-group-addon" ng-show="frmActivity.externalreference.$invalid">
+										<validation-tooltip target="externalreference">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+									-->
+											</div>
+										</div>
+									</div>
+									<!-- /externalreference -->
+									<!-- idcontact -->
+									<div class="form-group col-sm-12">
+										<div class="col-sm-4">
+											<p class="control-label" for="idcontact">{{'bimbuildui_activity_idcontact'
+												| translate}}</p>
+										</div>
+										<div class="col-sm-6">
+											<div class="input-group col-sm-12"
+												ng-class="{ 'has-error': (frmActivity.idcontact.$touched || frmActivity.idcontact.$dirty || frmDirty) && frmActivity.idcontact.$invalid }">
+												<md-autocomplete md-input-name="idcontact" required
+													ng-disabled="ctlidcontact.isDisabled"
+													md-no-cache="ctlidcontact.noCache"
+													md-selected-item="ctlidcontact.selectedItem"
+													md-search-text-change="ctlidcontact.searchTextChange(ctlidcontact.searchText)"
+													md-search-text="ctlidcontact.searchText"
+													md-selected-item-change="ctlidcontact.selectedItemChange(item)"
+													md-items="item in ctlidcontact.querySearch(ctlidcontact.searchText)"
+													md-item-text="item.requestor" md-min-length="0">
+												<md-item-template> <span
+													md-highlight-text="ctlidcontact.searchText"
+													md-highlight-flags="^i">{{item.requestor}}</span> </md-item-template> <md-not-found>
+												No items matching "{{ctlidcontact.searchText}}" were found.
+												<a ng-click="ctlidcontact.newState(ctlidcontact.searchText)">Create
+													a new one!</a> </md-not-found> </md-autocomplete>
+												<!-- <input class="form-control" type="text" id="idcontact"
+																	name="idcontact" ng-model="activity.idcontact"
+																	maxlength="50"></input> -->
+											</div>
+										</div>
+										<!-- Search/view item -->
+										<div class="col-sm-1">
+											<span class="glyphicon glyphicon-search rotate90"
+												ng-click="showAssignment()" data-toggle="tooltip"
+												title="{{'bimbuildui_activity_searchview' | translate}}">
+											</span>
+										</div>
+										<!-- /Search/view item -->
+										<!-- go this element -->
+										<div class="col-sm-1">
+											<span class="glyphicon glyphicon-fast-forward"
+												ng-click="showAssignment()" data-toggle="tooltip"
+												title="{{' bimbuildui_activity_gothiselement' | translate}}">
+											</span>
+										</div>
+										<!-- /go this element -->
+									</div>
+									<!-- /idcontact -->
+									<!-- origin1 -->
+									<div class="form-group col-sm-12">
+										<div class="col-sm-4">
+											<p class="control-label" for="origin1">{{'bimbuildui_activity_origin1'
+												| translate}}</p>
+										</div>
+										<div class="col-sm-8">
+											<span class="glyphicon glyphicon-plus"
+												ng-click="showOrigin()" data-toggle="tooltip"
+												title="{{'bimbuildui_home_create' | translate}}"> </span>
+										</div>
+									</div>
+									<!-- /origin1 -->
+									<!-- description -->
+									<div class="form-group col-sm-12">
+										<p class="control-label col-sm-1" for="description">{{'bimbuildui_activity_description'
+											| translate}}</p>
+										<div class="form-group col-sm-12">
+											<div ckeditor="options" class="form-control" type="text"
+												id="description" name="description"
+												ng-model="activity.description"></div>
+										</div>
+										<!-- 								
+										<div class="input-group col-sm-12" ng-class="{ 'has-error': (frmAccessprofile.description.$touched || frmAccessprofile.description.$dirty || frmDirty) && frmAccessprofile.description.$invalid }">
+										<input class="form-control" type="text" id="description" name="description" ng-model="accessprofile.description" required maxlength="50"></input>
+										<div class="input-group-addon" ng-show="frmAccessprofile.description.$invalid">
+										<validation-tooltip target="description">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+										</div>
+										</div>
+ 										-->
+									</div>
+									<!-- /description -->
+								</div>
+							</div>
+						</div>
+						<!-- /collapse Decription -->
+						<!-- collapse Assignment -->
+						<div class="panel panel-default">
+							<div class="panel-heading" data-toggle="collapse"
+								href="#assignment">
+								<h4 class="panel-title">
+									{{'bimbuildui_activity_assignment1' | translate}} <i
+										class="fa fa-angle-up rotate-icon"></i>
+									<div id="predecessorBadge" class="sectionBadge pull-right">0</div>
+								</h4>
+							</div>
+							<div id="assignment" class="panel-collapse collapse in">
+								<div class="panel-body">
+									<table class="table table-bordered">
+										<thead>
+											<tr>
+												<th><span class="glyphicon glyphicon-plus"
+													ng-click="showAssignment()" data-toggle="tooltip"
+													title="{{'bimbuildui_home_create' | translate}}"></span></th>
+												<th>{{'bimbuildui_activity_resource' | translate}}</th>
+												<th>{{'bimbuildui_activity_rate' | translate}}</th>
+												<th>{{'bimbuildui_activity_assigned' | translate}}</th>
+												<th>{{'bimbuildui_activity_real' | translate}}</th>
+												<th>{{'bimbuildui_activity_left' | translate}}</th>
+											</tr>
+										</thead>
+										<tbody>
+
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!--/collapse Assignment  -->
+						<!--collapse Product  -->
+						<div class="panel panel-default">
+							<div class="panel-heading" data-toggle="collapse"
+								href="#product1">
+								<h4 class="panel-title">
+									{{'bimbuildui_activity_product1' | translate}} <i
+										class="fa fa-angle-up rotate-icon"></i>
+									<div id="predecessorBadge" class="sectionBadge pull-right">0</div>
+								</h4>
+							</div>
+							<div id="product1" class="panel-collapse collapse in">
+								<div class="panel-body">
+									<!-- idproduct -->
+									<div class="form-group col-sm-12">
+										<div class="col-sm-4">
+											<p class="control-label" for="idproduct">{{'bimbuildui_activity_idproduct'
+												| translate}}</p>
+										</div>
+										<div class="col-sm-6">
+											<div class="input-group col-sm-12"
+												ng-class="{ 'has-error': (frmActivity.idproduct.$touched || frmActivity.idproduct.$dirty || frmDirty) && frmActivity.idproduct.$invalid }">
+												<input class="form-control" type="text" id="idproduct"
+													name="idproduct" ng-model="activity.idproduct"
+													maxlength="50"></input>
+											</div>
+										</div>
+										<!-- Search/view item -->
+										<div class="col-sm-1">
+											<span class="glyphicon glyphicon-search rotate90"
+												ng-click="showProduct()" data-toggle="tooltip"
+												title="{{'bimbuildui_activity_searchview' | translate}}">
+											</span>
+										</div>
+										<!-- /Search/view item -->
+										<!-- go this element -->
+										<div class="col-sm-1">
+											<span class="glyphicon glyphicon-fast-forward"
+												ng-click="showAssignment()" data-toggle="tooltip"
+												title="{{' bimbuildui_activity_gothiselement' | translate}}">
+											</span>
+										</div>
+										<!-- /go this element -->
+									</div>
+									<!-- /idproduct -->
+									<!-- idcomponent -->
+									<div class="form-group col-sm-12">
+										<div class="col-sm-4">
+											<p class="control-label" for="idcomponent">{{'bimbuildui_activity_idcomponent'
+												| translate}}</p>
+										</div>
+										<div class="col-sm-6">
+											<div class="input-group col-sm-12"
+												ng-class="{ 'has-error': (frmActivity.idcomponent.$touched || frmActivity.idcomponent.$dirty || frmDirty) && frmActivity.idcomponent.$invalid }">
+												<input class="form-control" type="text" id="idcomponent"
+													name="idcomponent" ng-model="activity.idcomponent"
+													maxlength="50"></input>
+											</div>
+										</div>
+										<!-- Search/view item -->
+										<div class="col-sm-1">
+											<span class="glyphicon glyphicon-search rotate90"
+												ng-click="showComponent()" data-toggle="tooltip"
+												title="{{'bimbuildui_activity_searchview' | translate}}">
+											</span>
+										</div>
+										<!-- /Search/view item -->
+										<!-- go this element -->
+										<div class="col-sm-1">
+											<span class="glyphicon glyphicon-fast-forward"
+												ng-click="showAssignment()" data-toggle="tooltip"
+												title="{{' bimbuildui_activity_gothiselement' | translate}}">
+											</span>
+										</div>
+										<!-- /go this element -->
+									</div>
+									<!-- /idcomponent -->
+									<!-- idversion -->
+									<div class="form-group col-sm-12">
+										<div class="col-sm-4">
+											<p class="control-label" for="idversion">{{'bimbuildui_activity_idversion'
+												| translate}}</p>
+										</div>
+										<div class="col-sm-6">
+											<div class="input-group col-sm-12"
+												ng-class="{ 'has-error': (frmActivity.idversion.$touched || frmActivity.idversion.$dirty || frmDirty) && frmActivity.idversion.$invalid }">
+												<input class="form-control" type="text" id="idversion"
+													name="idversion" ng-model="activity.idversion"
+													maxlength="50"></input>
+											</div>
+										</div>
+										<!-- Search/view item -->
+										<div class="col-sm-1">
+											<span class="glyphicon glyphicon-search rotate90"
+												ng-click="showProductversion()" data-toggle="tooltip"
+												title="{{'bimbuildui_activity_searchview' | translate}}">
+											</span>
+										</div>
+										<!-- /Search/view item -->
+										<!-- go this element -->
+										<div class="col-sm-1">
+											<span class="glyphicon glyphicon-fast-forward"
+												ng-click="showAssignment()" data-toggle="tooltip"
+												title="{{' bimbuildui_activity_gothiselement' | translate}}">
+											</span>
+										</div>
+										<!-- /go this element -->
+									</div>
+									<!-- /idversion -->
+									<!-- idcomponentversion -->
+									<div class="form-group col-sm-12">
+										<div class="col-sm-4">
+											<p class="control-label" for="idcomponentversion">{{'bimbuildui_activity_idcomponentversion'
+												| translate}}</p>
+										</div>
+										<div class="col-sm-6">
+											<div class="input-group col-sm-12"
+												ng-class="{ 'has-error': (frmActivity.idcomponentversion.$touched || frmActivity.idcomponentversion.$dirty || frmDirty) && frmActivity.idcomponentversion.$invalid }">
+												<input class="form-control" type="text"
+													id="idcomponentversion" name="idcomponentversion"
+													ng-model="activity.idcomponentversion" maxlength="50"></input>
+											</div>
+										</div>
+										<!-- Search/view item -->
+										<div class="col-sm-1">
+											<span class="glyphicon glyphicon-search rotate90"
+												ng-click="showComponentversion()" data-toggle="tooltip"
+												title="{{'bimbuildui_activity_searchview' | translate}}">
+											</span>
+										</div>
+										<!-- /Search/view item -->
+										<!-- go this element -->
+										<div class="col-sm-1">
+											<span class="glyphicon glyphicon-fast-forward"
+												ng-click="showAssignment()" data-toggle="tooltip"
+												title="{{' bimbuildui_activity_gothiselement' | translate}}">
+											</span>
+										</div>
+										<!-- /go this element -->
+									</div>
+									<!-- /idcomponentversion -->
+								</div>
+							</div>
+						</div>
+						<!--/collapse Product  -->
+						<!-- collapse Predecessor -->
+						<div class="panel panel-default">
+							<div class="panel-heading" data-toggle="collapse"
+								href="#predecessor1">
+								<h4 class="panel-title">
+									{{'bimbuildui_activity_predecessor1' | translate}} <i
+										class="fa fa-angle-up rotate-icon"></i>
+									<div id="predecessorBadge" class="sectionBadge pull-right">0</div>
+								</h4>
+							</div>
+							<div id="predecessor1" class="panel-collapse collapse in">
+								<div class="panel-body">
+									<table class="table table-bordered">
+										<thead>
+											<tr>
+												<th><span class="glyphicon glyphicon-plus"
+													ng-click="showAssignment()" data-toggle="tooltip"
+													title="{{'bimbuildui_home_create' | translate}}"></span></th>
+												<th>{{'bimbuildui_activity_element' | translate}}</th>
+												<th>{{'bimbuildui_activity_name1' | translate}}</th>
+												<th>{{'bimbuildui_activity_status' | translate}}</th>
+											</tr>
+										</thead>
+										<tbody>
+
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!--/collapse Predecessor  -->
+						<!-- collapse Linked -->
+						<div class="panel panel-default">
+							<div class="panel-heading" data-toggle="collapse" href="#linked1">
+								<h4 class="panel-title">
+									{{'bimbuildui_activity_linked1' | translate}} <i
+										class="fa fa-angle-up rotate-icon"></i>
+									<div id="predecessorBadge" class="sectionBadge pull-right">0</div>
+								</h4>
+							</div>
+							<div id="linked1" class="panel-collapse collapse in">
+								<div class="panel-body">
+									<table class="table table-bordered">
+										<thead>
+											<tr>
+												<th><span class="glyphicon glyphicon-plus"
+													ng-click="showLinked()" data-toggle="tooltip"
+													title="{{'bimbuildui_home_create' | translate}}"></span></th>
+												<th>{{'bimbuildui_activity_element' | translate}}</th>
+												<th>{{'bimbuildui_activity_name1' | translate}}</th>
+												<th>{{'bimbuildui_activity_status' | translate}}</th>
+											</tr>
+										</thead>
+										<tbody>
+
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!--/collapse Linked  -->
+						<!-- collapse Notes -->
+						<div class="panel panel-default">
+							<div class="panel-heading" data-toggle="collapse" href="#notes1">
+								<h4 class="panel-title">
+									{{'bimbuildui_activity_notes1' | translate}} <i
+										class="fa fa-angle-up rotate-icon"></i>
+									<div id="predecessorBadge" class="sectionBadge pull-right">0</div>
+								</h4>
+							</div>
+							<div id="notes1" class="panel-collapse collapse in">
+								<div class="panel-body">
+									<table class="table table-bordered">
+										<thead>
+											<tr>
+												<th><span class="glyphicon glyphicon-plus"
+													ng-click="showNote()" data-toggle="tooltip"
+													title="{{'bimbuildui_home_create' | translate}}"></span></th>
+												<th>{{'bimbuildui_activity_id1' | translate}}</th>
+												<th>{{'bimbuildui_activity_note1' | translate}}</th>
+											</tr>
+										</thead>
+										<tbody>
+
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!--/collapse Notes  -->
+					</div>
+					<!-- /First column -->
+
+					<!-- Second column -->
+					<div class="col-sm-6">
+						<!--collapse Treatment  -->
+						<div class="panel panel-default">
+							<div class="panel-heading" data-toggle="collapse"
+								href="#treatment1">
+								<h4 class="panel-title">
+									{{'bimbuildui_activity_treatment1' | translate}} <i
+										class="fa fa-angle-down rotate-icon"></i>
+								</h4>
+							</div>
+							<div id="treatment1" class="panel-collapse collapse in">
+								<div class="panel-body">
+									<!-- idactivity -->
+									<div class="form-group col-sm-12">
+										<div class="col-sm-4">
+											<p class="control-label" for="idactivity">{{'bimbuildui_activity_idactivity'
+												| translate}}</p>
+										</div>
+										<div class="col-sm-8">
+											<div class="input-group col-sm-12"
+												ng-class="{ 'has-error': (frmActivity.idactivity.$touched || frmActivity.idactivity.$dirty || frmDirty) && frmActivity.idactivity.$invalid }">
+												<md-autocomplete md-input-name="idactivity" required
+													ng-disabled="ctlidactivity.isDisabled"
+													md-no-cache="ctlidactivity.noCache"
+													md-selected-item="ctlidactivity.selectedItem"
+													md-search-text-change="ctlidactivity.searchTextChange(ctlidactivity.searchText)"
+													md-search-text="ctlidactivity.searchText"
+													md-selected-item-change="ctlidactivity.selectedItemChange(item)"
+													md-items="item in ctlidactivity.querySearch(ctlidactivity.searchText)"
+													md-item-text="item.parentactivity" md-min-length="0">
+												<md-item-template> <span
+													md-highlight-text="ctlidactivity.searchText"
+													md-highlight-flags="^i">{{item.parentactivity}}</span> </md-item-template> <md-not-found>
+												No items matching "{{ctlidactivity.searchText}}" were found.
+												<a
+													ng-click="ctlidactivity.newState(ctlidactivity.searchText)">Create
+													a new one!</a> </md-not-found> </md-autocomplete>
+												<!-- <input class="form-control" type="text" id="idactivity"
+															name="idactivity" ng-model="activity.idactivity" required
+															maxlength="50"></input> -->
+											</div>
+										</div>
+									</div>
+									<!-- /idactivity -->
+									<!-- idstatus -->
+									<div class="form-group col-sm-12">
+										<div class="col-sm-4">
+											<p class="control-label" for="idstatus">{{'bimbuildui_activity_idstatus'
+												| translate}}</p>
+										</div>
+										<div class="col-sm-4">
+											<div class="input-group col-sm-12"
+												ng-class="{ 'has-error': (frmActivity.idstatus.$touched || frmActivity.idstatus.$dirty || frmDirty) && frmActivity.idstatus.$invalid }">
+												<md-autocomplete md-input-name="idstatus" required
+													ng-disabled="ctlidstatus.isDisabled"
+													md-no-cache="ctlidstatus.noCache"
+													md-selected-item="ctlidstatus.selectedItem"
+													md-search-text-change="ctlidstatus.searchTextChange(ctlidstatus.searchText)"
+													md-search-text="ctlidstatus.searchText"
+													md-selected-item-change="ctlidstatus.selectedItemChange(item)"
+													md-items="item in ctlidstatus.querySearch(ctlidstatus.searchText)"
+													md-item-text="item.status" md-min-length="0">
+												<md-item-template> <span
+													md-highlight-text="ctlidstatus.searchText"
+													md-highlight-flags="^i">{{item.status}}</span> </md-item-template> <md-not-found>
+												No items matching "{{ctlidstatus.searchText}}" were found. <a
+													ng-click="ctlidstatus.newState(ctlidstatus.searchText)">Create
+													a new one!</a> </md-not-found> </md-autocomplete>
+
+												<!-- <input class="form-control" type="text" id="idstatus"
+															name="idstatus" ng-model="activity.idstatus" required
+															maxlength="50"></input> -->
+											</div>
+										</div>
+									</div>
+									<!-- /idstatus -->
+									<!-- idresource -->
+									<div class="form-group col-sm-12">
+										<div class="col-sm-4">
+											<p class="control-label" for="idresource">{{'bimbuildui_activity_idresource'
+												| translate}}</p>
+										</div>
+										<div class="col-sm-8">
+											<div class="input-group col-sm-12"
+												ng-class="{ 'has-error': (frmActivity.idresource.$touched || frmActivity.idresource.$dirty || frmDirty) && frmActivity.idresource.$invalid }">
+												<md-autocomplete md-input-name="idresource" required
+													ng-disabled="ctlidresource.isDisabled"
+													md-no-cache="ctlidresource.noCache"
+													md-selected-item="ctlidresource.selectedItem"
+													md-search-text-change="ctlidresource.searchTextChange(ctlidresource.searchText)"
+													md-search-text="ctlidresource.searchText"
+													md-selected-item-change="ctlidresource.selectedItemChange(item)"
+													md-items="item in ctlidresource.querySearch(ctlidresource.searchText)"
+													md-item-text="item.responsible" md-min-length="0">
+												<md-item-template> <span
+													md-highlight-text="ctlidresource.searchText"
+													md-highlight-flags="^i">{{item.responsible}}</span> </md-item-template> <md-not-found>
+												No items matching "{{ctlidresource.searchText}}" were found.
+												<a
+													ng-click="ctlidresource.newState(ctlidresource.searchText)">Create
+													a new one!</a> </md-not-found> </md-autocomplete>
+												<!-- <input class="form-control" type="text" id="idresource"
+															name="idresource" ng-model="activity.idresource" required
+															maxlength="50"></input> -->
+											</div>
+										</div>
+									</div>
+									<!-- /idresource -->
+									<!-- handled -->
+									<div class="form-group col-sm-12">
+										<div class="col-sm-4">
+											<p class="control-label" for="handled">{{'bimbuildui_activity_handled'
+												| translate}}</p>
+										</div>
+
+										<div class="col-sm-1"
+											ng-class="{ 'has-error': (frmActivity.handled.$touched || frmActivity.handled.$dirty || frmDirty) && frmActivity.handled.$invalid }">
+											<input type="checkbox" class="checkbox col-sm-12"
+												id="handled" name="handled" ng-model="activity.handled"
+												ng-checked="activity.handled" ng-true-value="1"
+												ng-false-value="0"></input>
+										</div>
+										<div class="col-sm-3">
+											<div class="input-group col-sm-9"
+												ng-class="{ 'has-error': (frmActivity.handleddate.$touched || frmActivity.handleddate.$dirty || frmDirty) && frmActivity.handleddate.$invalid }">
+												<input class="form-control" type="text" id="handleddate"
+													name="handleddate" ng-model="handleddate" maxlength="50"></input>
+											</div>
+										</div>
+									</div>
+									<!-- /handled -->
+									<!-- done -->
+									<div class="form-group col-sm-12">
+										<div class="col-sm-4">
+											<p class="control-label " for="done">{{'bimbuildui_activity_done'
+												| translate}}</p>
+										</div>
+										<div class="col-sm-1"
+											ng-class="{ 'has-error': (frmActivity.done.$touched || frmActivity.done.$dirty || frmDirty) && frmActivity.done.$invalid }">
+											<input type="checkbox" class="checkbox col-sm-12" id="done"
+												name="done" ng-model="activity.done"
+												ng-checked="activity.done" ng-true-value="1"
+												ng-false-value="0"></input>
+										</div>
+										<div class="col-sm-3">
+											<div class="input-group col-sm-9"
+												ng-class="{ 'has-error': (frmActivity.donedate.$touched || frmActivity.donedate.$dirty || frmDirty) && frmActivity.donedate.$invalid }">
+												<input class="form-control" type="text" id="donedate"
+													name="donedate" ng-model="activity.donedate" maxlength="50"></input>
+											</div>
+										</div>
+									</div>
+									<!-- /done -->
+									<!-- idle -->
+									<div class="form-group col-sm-12">
+										<div class="col-sm-4">
+											<p class="control-label" for="idle">{{'bimbuildui_activity_idle'
+												| translate}}</p>
+										</div>
+										<div class="col-sm-1"
+											ng-class="{ 'has-error': (frmActivity.idle.$touched || frmActivity.idle.$dirty || frmDirty) && frmActivity.idle.$invalid }">
+											<input type="checkbox" class="checkbox col-sm-12" id="idle"
+												name="idle" ng-model="activity.idle"
+												ng-checked="activity.idle" ng-true-value="1"
+												ng-false-value="0"></input>
+										</div>
+										<div class="col-sm-3">
+											<div class="input-group col-sm-9"
+												ng-class="{ 'has-error': (frmActivity.idledate.$touched || frmActivity.idledate.$dirty || frmDirty) && frmActivity.idledate.$invalid }">
+												<input class="form-control" type="text" id="idledate"
+													name="idledate" ng-model="activity.idledate" maxlength="50"></input>
+											</div>
+										</div>
+										<div class="col-sm-1"
+											ng-class="{ 'has-error': (frmActivity.cancelled.$touched || frmActivity.cancelled.$dirty || frmDirty) && frmActivity.cancelled.$invalid }">
+											<input type="checkbox" class="checkbox col-sm-12"
+												id="cancelled" name="cancelled"
+												ng-model="activity.cancelled"
+												ng-checked="activity.cancelled" ng-true-value="1"
+												ng-false-value="0"></input>
+										</div>
+										<div class="col-sm-2">
+											<p class="control-label col-sm-1" for="cancelled">{{'bimbuildui_activity_cancelled'
+												| translate}}</p>
+										</div>
+									</div>
+									<!-- /idle -->
+									<!-- result -->
+									<p class="control-label col-sm-1" for="result">{{'bimbuildui_activity_result'
+										| translate}}</p>
+									<div class="form-group col-sm-12">
+										<div ckeditor="options" class="form-control" type="text"
+											id="result" name="result" ng-model="activity.result"></div>
+									</div>
+									<!-- /result -->
+								</div>
+							</div>
+						</div>
+						<!-- /collapse Treatment -->
+						<div class="form-inline">
+							<div class="panel panel-default">
+								<div class="panel-heading" data-toggle="collapse"
+									href="#progress1">
+									<h4 class="panel-title">
+										{{'bimbuildui_activity_progress1' | translate}} <i
+											class="fa fa-angle-down rotate-icon"></i>
+									</h4>
+								</div>
+								<div id="progress1" class="panel-collapse collapse in">
+									<div class="panel-body">
+										<div class="form-group col-sm-12">
+											<label class="control-label col-sm-2" for=""></label> <label
+												class="control-label col-sm-2" for="validated">{{'bimbuildui_activity_validated'
+												| translate}}</label> <label class="control-label col-sm-2"
+												for="planned">{{'bimbuildui_activity_planned'
+												|translate}}</label> <label class="control-label col-sm-2"
+												for="real">{{'bimbuildui_activity_real' |
+												translate}}</label> <label class="control-label col-sm-2 pull-right"
+												for="requested">{{'bimbuildui_activity_requested' |
+												translate}}</label>
+										</div>
+										<div class="form-group col-sm-12">
+											<p class="control-label col-sm-2" for="idstartdate">{{'bimbuildui_activity_idstartdate'
+												| translate}}</p>
+											<div class="input-group col-sm-2"
+												ng-class="{ 'has-error': (frmActivity.validatedstartdate.$touched || frmActivity.validatedstartdate.$dirty || frmDirty) && frmActivity.validatedstartdate.$invalid }">
+												<input type="text" class="form-control"
+													uib-datepicker-popup="{{dateFormat}}"
+													ng-model="planning.validatedstartdate"
+													is-open="status.validatedstartdate" min-date="minDate"
+													max-date="maxDate" datepicker-options="dateOptions"
+													ng-required="true" close-text="Close"
+													date-disabled="disabled(date, mode)"
+													ng-click="status.validatedstartdate = true;" required />
+											</div>
+											<div class="input-group col-sm-2"
+												ng-class="{ 'has-error': (frmActivity.plannedstartdate.$touched || frmActivity.plannedstartdate.$dirty || frmDirty) && frmActivity.plannedstartdate.$invalid }">
+												<input type="text" class="form-control"
+													uib-datepicker-popup="{{dateFormat}}"
+													ng-model="planning.plannedstartdate"
+													is-open="status.plannedstartdate" min-date="minDate"
+													max-date="maxDate" datepicker-options="dateOptions"
+													ng-required="true" close-text="Close"
+													date-disabled="disabled(date, mode)" readonly />
+											</div>
+											<div class="input-group col-sm-2"
+												ng-class="{ 'has-error': (frmActivity.realstartdate.$touched || frmActivity.realstartDate.$dirty || frmDirty) && frmActivity.realstartDate.$invalid }">
+												<input type="text" class="form-control"
+													uib-datepicker-popup="{{dateFormat}}"
+													ng-model="planning.realstartDate"
+													is-open="status.realstartDate" min-date="minDate"
+													max-date="maxDate" datepicker-options="dateOptions"
+													ng-required="true" close-text="Close"
+													date-disabled="disabled(date, mode)" readonly />
+											</div>
+											<div class="input-group col-sm-2 pull-right"
+												ng-class="{ 'has-error': (frmActivity.initialstartdate.$touched || frmActivity.initialstartDate.$dirty || frmDirty) && frmActivity.initialstartdDate.$invalid }">
+												<input type="text" class="form-control"
+													uib-datepicker-popup="{{dateFormat}}"
+													ng-model="planning.initialstartDate"
+													is-open="status.initialstartDate" min-date="minDate"
+													max-date="maxDate" datepicker-options="dateOptions"
+													ng-required="true" close-text="Close"
+													date-disabled="disabled(date, mode)"
+													ng-click="status.initialstartDate = true;" required />
+											</div>
+										</div>
+										<div class="form-group col-sm-12">
+											<p class="control-label col-sm-2" for="idenddate">{{'bimbuildui_activity_idenddate'
+												| translate}}</p>
+											<div class="input-group col-sm-2"
+												ng-class="{ 'has-error': (frmActivity.validatedenddate.$touched || frmActivity.validatedenddate.$dirty || frmDirty) && frmActivity.validatedenddate.$invalid }">
+												<input type="text" class="form-control"
+													uib-datepicker-popup="{{dateFormat}}"
+													ng-model="planning.validatedenddate"
+													is-open="status.validatedenddate" min-date="minDate"
+													max-date="maxDate" datepicker-options="dateOptions"
+													ng-required="true" close-text="Close"
+													date-disabled="disabled(date, mode)"
+													ng-click="status.validatedenddate = true;" required />
+											</div>
+											<div class="input-group col-sm-2"
+												ng-class="{ 'has-error': (frmActivity.plannedenddate.$touched || frmActivity.plannedenddate.$dirty || frmDirty) && frmActivity.plannedenddate.$invalid }">
+												<input type="text" class="form-control"
+													uib-datepicker-popup="{{dateFormat}}"
+													ng-model="planning.plannedenddate"
+													is-open="status.plannedenddate" min-date="minDate"
+													max-date="maxDate" datepicker-options="dateOptions"
+													ng-required="true" close-text="Close"
+													date-disabled="disabled(date, mode)" readonly />
+											</div>
+											<div class="input-group col-sm-2"
+												ng-class="{ 'has-error': (frmActivity.realenddate.$touched || frmActivity.realenddate.$dirty || frmDirty) && frmActivity.realenddate.$invalid }">
+												<input type="text" class="form-control"
+													uib-datepicker-popup="{{dateFormat}}"
+													ng-model="planning.realenddate"
+													is-open="status.realenddate" min-date="minDate"
+													max-date="maxDate" datepicker-options="dateOptions"
+													ng-required="true" close-text="Close"
+													date-disabled="disabled(date, mode)" readonly />
+											</div>
+											<div class="input-group col-sm-2 pull-right"
+												ng-class="{ 'has-error': (frmActivity.initialenddate.$touched || frmActivity.initialenddate.$dirty || frmDirty) && frmActivity.initialenddate.$invalid }">
+												<input type="text" class="form-control"
+													uib-datepicker-popup="{{dateFormat}}"
+													ng-model="planning.initialenddate"
+													is-open="status.initialenddate" min-date="minDate"
+													max-date="maxDate" datepicker-options="dateOptions"
+													ng-required="true" close-text="Close"
+													date-disabled="disabled(date, mode)"
+													ng-click="status.initialenddate = true;" required />
+											</div>
+										</div>
+										<div class="form-group col-sm-12">
+											<p class="control-label col-sm-2" for="duration">{{'bimbuildui_activity_duration'
+												| translate}}</p>
+											<div class="input-group col-sm-2"
+												ng-class="{ 'has-error': (frmActivity.validatedduration.$touched || frmActivity.validatedduration.$dirty || frmDirty) && frmActivity.validatedduration.$invalid }">
+												<input class="form-control" type="text"
+													id="validatedduration" name="validatedduration"
+													ng-model="activity.validatedduration" maxlength="50"></input>
+												<span class="input-group-addon">d</span>
+											</div>
+											<div class="input-group col-sm-2"
+												ng-class="{ 'has-error': (frmActivity.plannedduration.$touched || frmActivity.plannedduration.$dirty || frmDirty) && frmActivity.plannedduration.$invalid }">
+												<input class="form-control" type="text" id="plannedduration"
+													name="plannedduration" ng-model="activity.plannedduration"
+													readonly maxlength="50"></input> <span
+													class="input-group-addon">d</span>
+											</div>
+											<div class="input-group col-sm-2"
+												ng-class="{ 'has-error': (frmActivity.realduration.$touched || frmActivity.realduration.$dirty || frmDirty) && frmActivity.realduration.$invalid }">
+												<input class="form-control" type="text" id="realduration"
+													name="realduration" ng-model="activity.realduration"
+													readonly maxlength="50"></input> <span
+													class="input-group-addon">d</span>
+											</div>
+											<div class="input-group col-sm-2 pull-right"
+												ng-class="{ 'has-error': (frmActivity.initialduration.$touched || frmActivity.initialduration.$dirty || frmDirty) && frmActivity.initialduration.$invalid }">
+												<input class="form-control" type="text" id="initialduration"
+													name="initialduration" ng-model="activity.initialduration"
+													required maxlength="50"></input> <span
+													class="input-group-addon">d</span>
+											</div>
+										</div>
+										<div class="form-group col-sm-12">
+											<label class="control-label col-sm-1"></label> <label
+												class="control-label col-sm-2" for="validated">{{'bimbuildui_activity_validated'
+												| translate}}</label> <label class="control-label col-sm-2"
+												for="planned">{{'bimbuildui_activity_assigned' |
+												translate}}</label> <label class="control-label col-sm-2" for="real">{{'bimbuildui_activity_real'
+												| translate}}</label> <label class="control-label col-sm-2"
+												for="left">{{'bimbuildui_activity_left' |
+												translate}}</label> <label class="control-label col-sm-2 pull-right"
+												for="requested">{{'bimbuildui_activity_reassessed' |
+												translate}}</label>
+										</div>
+										<div class="form-group col-sm-12">
+											<p class="col-sm-1" for="work">{{'bimbuildui_activity_work'
+												| translate}}</p>
+											<div class="input-group col-sm-2"
+												ng-class="{ 'has-error': (frmActivity.validatedwork.$touched || frmActivity.validatedwork.$dirty || frmDirty) && frmActivity.validatedwork.$invalid }">
+												<input class="form-control" type="text" id="validatedwork"
+													name="validatedwork" ng-model="activity.validatedwork"
+													required maxlength="50"></input> <span
+													class="input-group-addon">{{'bimbuildui_activity_workday'
+													| translate}}</span>
+											</div>
+											<div class="input-group col-sm-2"
+												ng-class="{ 'has-error': (frmActivity.plannedwork.$touched || frmActivity.plannedwork.$dirty || frmDirty) && frmActivity.plannedwork.$invalid }">
+												<input class="form-control" type="text" id="plannedwork"
+													name="plannedwork" ng-model="activity.plannedwork" readonly
+													maxlength="50"></input> <span class="input-group-addon">{{'bimbuildui_activity_workday'
+													| translate}}</span>
+											</div>
+											<div class="input-group col-sm-2"
+												ng-class="{ 'has-error': (frmActivity.realwork.$touched || frmActivity.realwork.$dirty || frmDirty) && frmActivity.realwork.$invalid }">
+												<input class="form-control" type="text" id="realwork"
+													name="realwork" ng-model="activity.realwork" readonly
+													maxlength="50"></input> <span class="input-group-addon">{{'bimbuildui_activity_workday'
+													| translate}}</span>
+											</div>
+											<div class="input-group col-sm-2"
+												ng-class="{ 'has-error': (frmActivity.leftwork.$touched || frmActivity.leftwork.$dirty || frmDirty) && frmActivity.leftwork.$invalid }">
+												<input class="form-control" type="text" id="leftwork"
+													name="leftwork" ng-model="activity.leftwork" readonly
+													maxlength="50"></input> <span class="input-group-addon">{{'bimbuildui_activity_workday'
+													| translate}}</span>
+											</div>
+											<div class="input-group col-sm-2 pull-right"
+												ng-class="{ 'has-error': (frmActivity.assignedwork.$touched || frmActivity.assignedwork.$dirty || frmDirty) && frmActivity.assignedwork.$invalid }">
+												<input class="form-control" type="text" id="assignedwork"
+													name="assignedwork" ng-model="activity.assignedwork"
+													readonly maxlength="50"></input> <span
+													class="input-group-addon">d</span>
+											</div>
+										</div>
+										<div class="form-group col-sm-12">
+											<p class="col-sm-1" for="idcomponentversion">{{'bimbuildui_activity_cost'
+												| translate}}</p>
+											<div class="input-group col-sm-2"
+												ng-class="{ 'has-error': (frmActivity.validatedcost.$touched || frmActivity.validatedcost.$dirty || frmDirty) && frmActivity.validatedcost.$invalid }">
+												<input class="form-control" type="text" id="validatedcost"
+													name="validatedcost" ng-model="activity.validatedcost"
+													required maxlength="50"></input> <span
+													class="input-group-addon glyphicon glyphicon-euro"></span>
+											</div>
+											<div class="input-group col-sm-2"
+												ng-class="{ 'has-error': (frmActivity.plannedcost.$touched || frmActivity.plannedcost.$dirty || frmDirty) && frmActivity.plannedcost.$invalid }">
+												<input class="form-control" type="text" id="plannedcost"
+													name="plannedcost" ng-model="activity.plannedcost" readonly
+													maxlength="50"></input> <span
+													class="input-group-addon glyphicon glyphicon-euro"></span>
+											</div>
+											<div class="input-group col-sm-2"
+												ng-class="{ 'has-error': (frmActivity.realcost.$touched || frmActivity.realcost.$dirty || frmDirty) && frmActivity.realcost.$invalid }">
+												<input class="form-control" type="text" id="realcost"
+													name="realcost" ng-model="activity.realcost" readonly
+													maxlength="50"></input> <span
+													class="input-group-addon glyphicon glyphicon-euro"></span>
+											</div>
+											<div class="input-group col-sm-2"
+												ng-class="{ 'has-error': (frmActivity.leftcost.$touched || frmActivity.leftcost.$dirty || frmDirty) && frmActivity.leftcost.$invalid }">
+												<input class="form-control" type="text" id="leftcost"
+													name="leftcost" ng-model="leftcost" readonly maxlength="50"></input>
+												<span class="input-group-addon glyphicon glyphicon-euro"></span>
+											</div>
+											<div class="input-group col-sm-2 pull-right"
+												ng-class="{ 'has-error': (frmActivity.assignedcost.$touched || frmActivity.assignedcost.$dirty || frmDirty) && frmActivity.assignedcost.$invalid }">
+												<input class="form-control" type="text" id="assignedcost"
+													name="assignedcost" ng-model="activity.assignedcost"
+													readonly maxlength="50"></input> <span
+													class="input-group-addon glyphicon glyphicon-euro"></span>
+											</div>
+										</div>
+										<div class="form-group col-sm-12">
+											<p class="col-sm-2" for="idcomponentversion">{{'bimbuildui_activity_progress'
+												| translate}}</p>
+											<p class="col-sm-2" for="%">0 %</p>
+											<p class="col-sm-2" for="idcomponentversion">{{'bimbuildui_activity_expected'
+												| translate}}</p>
+											<p class="col-sm-2" for="%">0 %</p>
+											<p class="col-sm-1" for="idcomponentversion">{{'bimbuildui_activity_wbs'
+												| translate}}</p>
+											<p class="col-sm-2" for="%">1.1</p>
+										</div>
+										<div class="form-group col-sm-12">
+											<div class="row">
+												<div class="col-sm-5">
+													<div class="form-group col-sm-12">
+														<p class="col-sm-4" for="priority">{{'bimbuildui_activity_priority'
+															| translate}}</p>
+														<div class="input-group col-sm-4"
+															ng-class="{ 'has-error': (frmActivity.priority.$touched || frmActivity.priority.$dirty || frmDirty) && frmActivity.priority.$invalid }">
+															<input class="form-control" type="text" id="priority"
+																name="priority" ng-model="activity.priority"
+																maxlength="50"></input>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-7">
+													<div class="form-group col-sm-12">
+														<p class="col-sm-3" for="planningmode">{{'bimbuildui_activity_planningmode'
+															| translate}}</p>
+														<div class="input-group col-sm-7"
+															ng-class="{ 'has-error': (frmActivity.planningmode.$touched || frmActivity.planningmode.$dirty || frmDirty) && frmActivity.planningmode.$invalid }">
+															<md-autocomplete md-input-name="planningmode" required
+																ng-disabled="ctlplanningmode.isDisabled"
+																md-no-cache="ctlplanningmode.noCache"
+																md-selected-item="ctlplanningmode.selectedItem"
+																md-search-text-change="ctlplanningmode.searchTextChange(ctlplanningmode.searchText)"
+																md-search-text="ctlplanningmode.searchText"
+																md-selected-item-change="ctlplanningmode.selectedItemChange(item)"
+																md-items="item in ctlplanningmode.querySearch(ctlplanningmode.searchText)"
+																md-item-text="item.planningname" md-min-length="0">
+															<md-item-template> <span
+																md-highlight-text="ctlplanningmode.searchText"
+																md-highlight-flags="^i">{{item.planningname}}</span> </md-item-template> <md-not-found>
+															No items matching "{{ctlplanningmode.searchText}}" were
+															found. <a
+																ng-click="ctlplanningmode.newState(ctlplanningmode.searchText)">Create
+																a new one!</a> </md-not-found> </md-autocomplete>
+															<div class="input-group-addon"
+																ng-show="frmClient.planningmode.$invalid">
+																<validation-tooltip target="planningmode">
+																<ul class="list-unstyled">
+																	<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field'
+																		| translate}}</li>
+																</ul>
+																</validation-tooltip>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="form-group col-sm-12">
+											<label class="control-label col-sm-2" for=""></label> <label
+												class="control-label col-sm-2" for="validated">{{'bimbuildui_activity_number'
+												| translate}}</label> <label class="control-label col-sm-2"
+												for="planned">{{'bimbuildui_activity_estimated' |
+												translate}}</label> <label class="control-label col-sm-2" for="real">{{'bimbuildui_activity_real'
+												| translate}}</label> <label class="control-label col-sm-2"
+												for="requested">{{'bimbuildui_activity_left' |
+												translate}}</label>
+										</div>
+										<div class="form-group col-sm-12">
+											<p class="col-sm-2" for="idcomponentversion">{{'bimbuildui_activity_ticket'
+												| translate}}</p>
+											<label class="control-label col-sm-2" for="number"
+												ng-model="activity.number"></label>
+											<div class="input-group col-sm-2"
+												ng-class="{ 'has-error': (frmActivity.workelementestimatedwork.$touched || frmActivity.workelementestimatedwork.$dirty || frmDirty) && frmActivity.workelementestimatedwork.$invalid }">
+												<input class="form-control" type="text"
+													id="workelementestimatedwork"
+													name="workelementestimatedwork"
+													ng-model="activity.workelementestimatedwork" readonly
+													maxlength="50"></input> <span class="input-group-addon">d</span>
+											</div>
+											<div class="input-group col-sm-2"
+												ng-class="{ 'has-error': (frmActivity.workelementrealwork.$touched || frmActivity.workelementrealwork.$dirty || frmDirty) && frmActivity.workelementrealwork.$invalid }">
+												<input value="0" class="form-control" type="text"
+													id="workelementrealwork" name="workelementrealwork"
+													ng-model="activity.workelementrealwork" readonly
+													maxlength="50"></input> <span class="input-group-addon">d</span>
+											</div>
+											<div class="input-group col-sm-2"
+												ng-class="{ 'has-error': (frmActivity.workelementleftwork.$touched || frmActivity.workelementleftwork.$dirty || frmDirty) && frmActivity.workelementleftwork.$invalid }">
+												<input class="form-control" type="text"
+													id="workelementleftwork" name="workelementleftwork"
+													ng-model="activity.workelementleftwork" readonly
+													maxlength="50"></input> <span class="input-group-addon">d</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading" data-toggle="collapse"
+								href="#successor">
+								<h4 class="panel-title">
+									{{'bimbuildui_activity_successor1' | translate}} <i
+										class="fa fa-angle-up rotate-icon"></i>
+									<div id="2" class="sectionBadge pull-right">0</div>
+								</h4>
+							</div>
+							<div id="successor" class="panel-collapse collapse in">
+								<div class="panel-body">
+									<table class="table table-bordered">
+										<thead>
+											<tr>
+												<th><span class="glyphicon glyphicon-plus"
+													ng-click="showAssignment()" data-toggle="tooltip"
+													title="{{'bimbuildui_home_create' | translate}}"></span></th>
+												<th>{{'bimbuildui_activity_element' | translate}}</th>
+												<th>{{'bimbuildui_activity_name1' | translate}}</th>
+												<th>{{'bimbuildui_activity_status' | translate}}</th>
+											</tr>
+										</thead>
+										<tbody>
+
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading" data-toggle="collapse"
+								href="#attachment1">
+								<h4 class="panel-title">
+									{{'bimbuildui_activity_attachment1' | translate}} <i
+										class="fa fa-angle-up rotate-icon"></i>
+									<div id="3" class="sectionBadge pull-right">0</div>
+								</h4>
+							</div>
+							<div id="attachment1" class="panel-collapse collapse in">
+								<div class="panel-body">
+									<table class="table table-bordered">
+										<thead>
+											<tr>
+												<th><span class="glyphicon glyphicon-plus"
+													ng-click="showAssignment()" data-toggle="tooltip"
+													title="{{'bimbuildui_home_create' | translate}}"></span> <span
+													class="glyphicon glyphicon-link"
+													ng-click="showAssignment()" data-toggle="tooltip"
+													title="{{'bimbuildui_home_create' | translate}}"></span></th>
+												<th>{{'bimbuildui_activity_id1' | translate}}</th>
+												<th>{{'bimbuildui_activity_files1' | translate}}</th>
+											</tr>
+										</thead>
+										<tbody>
+
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /Second column -->
+				</div>
+				<!-- Change History -->
+				<div class="panel panel-default">
+					<div class="panel-heading" data-toggle="collapse" href="#history1">
+						<h4 class="panel-title">
+							{{'bimbuildui_activity_history1' | translate}} <i
+								class="fa fa-angle-up rotate-icon"></i>
+							<div id="3" class="sectionBadge pull-right">0</div>
+						</h4>
+					</div>
+					<div id="history1" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>{{'bimbuildui_activity_operation1' | translate}}</th>
+										<th>{{'bimbuildui_activity_data1' | translate}}</th>
+										<th>{{'bimbuildui_activity_valuebefore1' | translate}}</th>
+										<th>{{'bimbuildui_activity_valueafter1' | translate}}</th>
+										<th>{{'bimbuildui_activity_date1' | translate}}</th>
+										<th>{{'bimbuildui_activity_user1' | translate}}</th>
+									</tr>
+								</thead>
+								<tbody>
+
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Bottom actions -->
+			<div class="panel-footer">
+				<div class="row">
+					<div class="btn-group pull-right">
+						<button class="btn btn-info" ng-click="save()"
+							data-toggle="tooltip"
+							title="{{'bimbuildui_home_save' | translate}}">
+							<span class="glyphicon glyphicon-floppy-disk"></span>
+						</button>
+						<button class="btn btn-info" ng-click="create()"
+							data-toggle="tooltip"
+							title="{{'bimbuildui_home_create' | translate}}">
+							<span class="glyphicon glyphicon-plus"></span>
+						</button>
+						<button class="btn btn-info" ng-click="closeDialog()"
+							data-toggle="tooltip"
+							title="{{'bimbuildui_home_close' | translate}}">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,10 @@
+{
+	"bimbuildui_link_title": "Link",
+	"bimbuildui_link_ref1type": "ref1type",
+	"bimbuildui_link_ref1id": "ref1id",
+	"bimbuildui_link_ref2type": "linked element type:",
+	"bimbuildui_link_ref2id": "linked element:",
+	"bimbuildui_link_comment": "comment",
+	"bimbuildui_link_creationdate": "creationdate",
+	"bimbuildui_link_iduser": "iduser"
+}

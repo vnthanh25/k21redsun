@@ -1,0 +1,171 @@
+\
+<div>
+
+	<form name="frmNote" novalidate class="css-form">
+		<div class="panel panel-default">
+			<!-- Top actions -->
+			<div class="panel-heading">
+				<div class="row">
+
+					<div class="btn btn-link pull-left" ng-click="list()">{{'bimbuildui_note_title'
+						| translate}}</div>
+					<div class="btn-group pull-right">
+						<button class="btn btn-info" ng-click="save()"
+							data-toggle="tooltip"
+							title="{{'bimbuildui_home_save' | translate}}">
+							<span class="glyphicon glyphicon-floppy-disk"></span>
+						</button>
+						<button class="btn btn-info" ng-click="create()"
+							data-toggle="tooltip"
+							title="{{'bimbuildui_home_create' | translate}}">
+							<span class="glyphicon glyphicon-plus"></span>
+						</button>
+						<button class="btn btn-info" ng-click="closeDialog()"
+							data-toggle="tooltip"
+							title="{{'bimbuildui_home_close' | translate}}">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+			<!-- Alert Message -->
+			<div id="alertMessage" class="alert" style="display: none">
+				<strong>{{alertMessage}}</strong>
+			</div>
+			<!-- Context -->
+			<div class="panel-body">
+				<div class="form-vertical">
+						<!-- reftype -->
+						<!-- <div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="reftype">{{'bimbuildui_note_reftype' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmNote.reftype.$touched || frmNote.reftype.$dirty || frmDirty) && frmNote.reftype.$invalid }">
+									<input class="form-control" type="text" id="reftype" name="reftype" ng-model="note.reftype" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmNote.reftype.$invalid">
+										<validation-tooltip target="reftype">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+						<!-- /reftype -->
+						<!-- refid -->
+						<!-- <div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="refid">{{'bimbuildui_note_refid' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmNote.refid.$touched || frmNote.refid.$dirty || frmDirty) && frmNote.refid.$invalid }">
+									<input class="form-control" type="text" id="refid" name="refid" ng-model="note.refid" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmNote.refid.$invalid">
+										<validation-tooltip target="refid">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+						<!-- /refid -->
+						<!-- note -->
+						<div class="form-group">
+							<p class="control-label col-sm-1" for="note">{{'bimbuildui_note_note'
+								| translate}}</p>
+							<div class="form-group col-sm-12">
+								<div ckeditor="options" class="form-control" type="text"
+									id="note" name="note" ng-model="note.note"></div>
+							</div>
+							<!-- /note -->
+						</div>
+					</div>
+					
+							<!-- creationdate -->
+							<!-- <div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="creationdate">{{'bimbuildui_note_creationdate' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmNote.creationdate.$touched || frmNote.creationdate.$dirty || frmDirty) && frmNote.creationdate.$invalid }">
+									<input class="form-control" type="text" id="creationdate" name="creationdate" ng-model="note.creationdate" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmNote.creationdate.$invalid">
+										<validation-tooltip target="creationdate">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /creationdate -->
+							<!-- updatedate -->
+							<!-- <div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="updatedate">{{'bimbuildui_note_updatedate' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmNote.updatedate.$touched || frmNote.updatedate.$dirty || frmDirty) && frmNote.updatedate.$invalid }">
+									<input class="form-control" type="text" id="updatedate" name="updatedate" ng-model="note.updatedate" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmNote.updatedate.$invalid">
+										<validation-tooltip target="updatedate">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /updatedate -->
+							
+							<label class="radio-inline col-sm-4"><input type="radio" name="optradio" ng-model="note.idprivacy">{{'bimbuildui_note_idprivacy'
+								| translate}}</label>
+							
+							<label class="radio-inline col-sm-4"><input type="radio" name="optradio" ng-model="note.idteam" disabled>{{'bimbuildui_note_idteam'
+								| translate}}</label>
+							<label class="radio-inline col-sm-3"><input type="radio" name="optradio" ng-model="note.iduser">{{'bimbuildui_note_iduser'
+								| translate}}</label>
+							<!-- fromemail -->
+							<!-- <div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="fromemail">{{'bimbuildui_note_fromemail' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmNote.fromemail.$touched || frmNote.fromemail.$dirty || frmDirty) && frmNote.fromemail.$invalid }">
+									<input class="form-control" type="text" id="fromemail" name="fromemail" ng-model="note.fromemail" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmNote.fromemail.$invalid">
+										<validation-tooltip target="fromemail">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /fromemail -->
+						
+					
+
+				</div>
+			<!-- Bottom actions -->
+			<div class="panel-footer">
+				<div class="row">
+					<div class="btn-group pull-right">
+						<button class="btn btn-info" ng-click="save()"
+							data-toggle="tooltip"
+							title="{{'bimbuildui_home_save' | translate}}">
+							<span class="glyphicon glyphicon-floppy-disk"></span>
+						</button>
+						<button class="btn btn-info" ng-click="create()"
+							data-toggle="tooltip"
+							title="{{'bimbuildui_home_create' | translate}}">
+							<span class="glyphicon glyphicon-plus"></span>
+						</button>
+						<button class="btn btn-info" ng-click="closeDialog()"
+							data-toggle="tooltip"
+							title="{{'bimbuildui_home_close' | translate}}">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

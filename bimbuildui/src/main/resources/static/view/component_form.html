@@ -1,0 +1,287 @@
+
+<div>
+
+	<form name="frmComponent" novalidate class="css-form">
+		<div class="panel panel-default">
+			<!-- Top actions -->
+			<div class="panel-heading">
+				<div class="row">
+				
+					<div class="btn btn-link pull-left" ng-click="list()">{{'bimbuildui_component_title' | translate}}</div>
+					<div class="btn-group pull-right">
+						<button class="btn btn-info" ng-click="save()" data-toggle="tooltip" title="{{'bimbuildui_home_save' | translate}}">
+							<span class="glyphicon glyphicon-floppy-disk"></span>
+						</button>
+						<button class="btn btn-info" ng-click="create()" data-toggle="tooltip" title="{{'bimbuildui_home_create' | translate}}">
+							<span class="glyphicon glyphicon-plus"></span>
+						</button>
+						<button class="btn btn-info" ng-click="closeDialog()" data-toggle="tooltip" title="{{'bimbuildui_home_close' | translate}}">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+			<!-- Alert Message -->
+			<div id="alertMessage" class="alert" style="display: none">
+				<strong>{{alertMessage}}</strong>
+			</div>
+			<!-- Context -->
+			<div class="panel-body">
+				<div class="row">
+					
+					<!-- First column -->
+					<div class="col-sm-6">
+						<div class="form-vertical">
+							<!-- name -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="name">{{'bimbuildui_component_name' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmComponent.name.$touched || frmComponent.name.$dirty || frmDirty) && frmComponent.name.$invalid }">
+									<input class="form-control" type="text" id="name" name="name" ng-model="component.name" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmComponent.name.$invalid">
+										<validation-tooltip target="name">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /name -->
+							<!-- idclient -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="idclient">{{'bimbuildui_component_idclient' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmComponent.idclient.$touched || frmComponent.idclient.$dirty || frmDirty) && frmComponent.idclient.$invalid }">
+									<input class="form-control" type="text" id="idclient" name="idclient" ng-model="component.idclient" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmComponent.idclient.$invalid">
+										<validation-tooltip target="idclient">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /idclient -->
+							<!-- idcontact -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="idcontact">{{'bimbuildui_component_idcontact' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmComponent.idcontact.$touched || frmComponent.idcontact.$dirty || frmDirty) && frmComponent.idcontact.$invalid }">
+									<input class="form-control" type="text" id="idcontact" name="idcontact" ng-model="component.idcontact" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmComponent.idcontact.$invalid">
+										<validation-tooltip target="idcontact">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /idcontact -->
+							<!-- description -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="description">{{'bimbuildui_component_description' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmComponent.description.$touched || frmComponent.description.$dirty || frmDirty) && frmComponent.description.$invalid }">
+									<input class="form-control" type="text" id="description" name="description" ng-model="component.description" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmComponent.description.$invalid">
+										<validation-tooltip target="description">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /description -->
+							<!-- creationdate -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="creationdate">{{'bimbuildui_component_creationdate' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmComponent.creationdate.$touched || frmComponent.creationdate.$dirty || frmDirty) && frmComponent.creationdate.$invalid }">
+									<input class="form-control" type="text" id="creationdate" name="creationdate" ng-model="component.creationdate" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmComponent.creationdate.$invalid">
+										<validation-tooltip target="creationdate">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /creationdate -->
+							<!-- idle -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="idle">{{'bimbuildui_component_idle' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmComponent.idle.$touched || frmComponent.idle.$dirty || frmDirty) && frmComponent.idle.$invalid }">
+									<input class="form-control" type="text" id="idle" name="idle" ng-model="component.idle" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmComponent.idle.$invalid">
+										<validation-tooltip target="idle">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /idle -->
+							<!-- idproduct -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="idproduct">{{'bimbuildui_component_idproduct' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmComponent.idproduct.$touched || frmComponent.idproduct.$dirty || frmDirty) && frmComponent.idproduct.$invalid }">
+									<input class="form-control" type="text" id="idproduct" name="idproduct" ng-model="component.idproduct" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmComponent.idproduct.$invalid">
+										<validation-tooltip target="idproduct">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /idcomponent -->
+							<!-- designation -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="designation">{{'bimbuildui_component_designation' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmComponent.designation.$touched || frmComponent.designation.$dirty || frmDirty) && frmComponent.designation.$invalid }">
+									<input class="form-control" type="text" id="designation" name="designation" ng-model="component.designation" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmComponent.designation.$invalid">
+										<validation-tooltip target="designation">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /designation -->
+							<!-- scope -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="scope">{{'bimbuildui_component_scope' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmComponent.scope.$touched || frmComponent.scope.$dirty || frmDirty) && frmComponent.scope.$invalid }">
+									<input class="form-control" type="text" id="scope" name="scope" ng-model="component.scope" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmComponent.scope.$invalid">
+										<validation-tooltip target="scope">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /scope -->
+							<!-- idproducttype -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="idproducttype">{{'bimbuildui_component_idproducttype' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmComponent.idproducttype.$touched || frmComponent.idproducttype.$dirty || frmDirty) && frmComponent.idproducttype.$invalid }">
+									<input class="form-control" type="text" id="idproducttype" name="idproducttype" ng-model="component.idproducttype" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmComponent.idproducttype.$invalid">
+										<validation-tooltip target="idproducttype">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /idproducttype -->
+							<!-- idcomponenttype -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="idcomponenttype">{{'bimbuildui_component_idcomponenttype' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmComponent.idcomponenttype.$touched || frmComponent.idcomponenttype.$dirty || frmDirty) && frmComponent.idcomponenttype.$invalid }">
+									<input class="form-control" type="text" id="idcomponenttype" name="idcomponenttype" ng-model="component.idcomponenttype" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmComponent.idcomponenttype.$invalid">
+										<validation-tooltip target="idcomponenttype">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /idcomponenttype -->
+							<!-- idresource -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="idresource">{{'bimbuildui_component_idresource' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmComponent.idresource.$touched || frmComponent.idresource.$dirty || frmDirty) && frmComponent.idresource.$invalid }">
+									<input class="form-control" type="text" id="idresource" name="idresource" ng-model="component.idresource" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmComponent.idresource.$invalid">
+										<validation-tooltip target="idresource">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /idresource -->
+							<!-- iduser -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="iduser">{{'bimbuildui_component_iduser' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmComponent.iduser.$touched || frmComponent.iduser.$dirty || frmDirty) && frmComponent.iduser.$invalid }">
+									<input class="form-control" type="text" id="iduser" name="iduser" ng-model="component.iduser" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmComponent.iduser.$invalid">
+										<validation-tooltip target="iduser">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /iduser -->
+						</div>
+					</div>
+					<!-- /First column -->
+					
+					<!-- Second column -->
+					<div class="col-sm-6">
+						<div class="form-vertical">
+						
+						</div>
+					</div>
+					<!-- /Second column -->
+				</div>
+			</div>
+			<!-- Bottom actions -->
+			<div class="panel-footer">
+				<div class="row">
+					<div class="btn-group pull-right">
+						<button class="btn btn-info" ng-click="save()" data-toggle="tooltip" title="{{'bimbuildui_home_save' | translate}}">
+							<span class="glyphicon glyphicon-floppy-disk"></span>
+						</button>
+						<button class="btn btn-info" ng-click="create()" data-toggle="tooltip" title="{{'bimbuildui_home_create' | translate}}">
+							<span class="glyphicon glyphicon-plus"></span>
+						</button>
+						<button class="btn btn-info" ng-click="closeDialog()" data-toggle="tooltip" title="{{'bimbuildui_home_close' | translate}}">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

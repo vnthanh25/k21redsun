@@ -1,0 +1,22 @@
+{
+	"bimbuildui_versioncomponent_title": "Component Versions",
+	"bimbuildui_versioncomponent_idproduct": "component name",
+	"bimbuildui_versioncomponent_idcontact": "prime contractor",
+	"bimbuildui_versioncomponent_idresource": "responsible",
+	"bimbuildui_versioncomponent_name": "version name",
+	"bimbuildui_versioncomponent_description": "description",
+	"bimbuildui_versioncomponent_creationdate": "creation date",
+	"bimbuildui_versioncomponent_idle": "closed",
+	"bimbuildui_versioncomponent_initialeisdate": "initial entry into service",
+	"bimbuildui_versioncomponent_plannedeisdate": "planned entry into service",
+	"bimbuildui_versioncomponent_realeisdate": "real entry into service",
+	"bimbuildui_versioncomponent_initialenddate": "requested end date",
+	"bimbuildui_versioncomponent_plannedenddate": "plannedenddate",
+	"bimbuildui_versioncomponent_realenddate": "real end",
+	"bimbuildui_versioncomponent_iseis": "is entered into service",
+	"bimbuildui_versioncomponent_scope": "scope",
+	"bimbuildui_versioncomponent_versionnumber": "versionnumber",
+	"bimbuildui_versioncomponent_iduser": "user",
+	"bimbuildui_versioncomponent_idversiontype": "component version type",
+	"bimbuildui_versioncomponent_id": "id"
+}

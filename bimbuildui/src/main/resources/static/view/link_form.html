@@ -1,0 +1,212 @@
+
+<div>
+
+	<form name="frmLink" novalidate class="form-horizontal">
+		<div class="panel panel-default">
+			<!-- Top actions -->
+			<div class="panel-heading">
+				<div class="row">
+				
+					<div class="btn btn-link pull-left" ng-click="list()">{{'bimbuildui_link_title' | translate}}</div>
+					<div class="btn-group pull-right">
+						<button class="btn btn-info" ng-click="save()" data-toggle="tooltip" title="{{'bimbuildui_home_save' | translate}}">
+							<span class="glyphicon glyphicon-floppy-disk"></span>
+						</button>
+						<button class="btn btn-info" ng-click="create()" data-toggle="tooltip" title="{{'bimbuildui_home_create' | translate}}">
+							<span class="glyphicon glyphicon-plus"></span>
+						</button>
+						<button class="btn btn-info" ng-click="closeDialog()" data-toggle="tooltip" title="{{'bimbuildui_home_close' | translate}}">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+			<!-- Alert Message -->
+			<div id="alertMessage" class="alert" style="display: none">
+				<strong>{{alertMessage}}</strong>
+			</div>
+			<!-- Context -->
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-sm-3">
+					</div>
+					<!-- First column -->
+					<div class="col-sm-7">
+						<div class="form-vertical">
+							<!-- ref1type -->
+							<!-- <div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="ref1type">{{'bimbuildui_link_ref1type' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmLink.ref1type.$touched || frmLink.ref1type.$dirty || frmDirty) && frmLink.ref1type.$invalid }">
+									<input class="form-control" type="text" id="ref1type" name="ref1type" ng-model="link.ref1type" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmLink.ref1type.$invalid">
+										<validation-tooltip target="ref1type">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /ref1type -->
+							<!-- ref1id -->
+							<!-- <div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="ref1id">{{'bimbuildui_link_ref1id' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmLink.ref1id.$touched || frmLink.ref1id.$dirty || frmDirty) && frmLink.ref1id.$invalid }">
+									<input class="form-control" type="text" id="ref1id" name="ref1id" ng-model="link.ref1id" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmLink.ref1id.$invalid">
+										<validation-tooltip target="ref1id">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /ref1id -->
+							<!-- ref2type -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="ref2type">{{'bimbuildui_link_ref2type' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmLink.ref2type.$touched || frmLink.ref2type.$dirty || frmDirty) && frmLink.ref2type.$invalid }">
+									<md-autocomplete md-input-name="ref2type" required
+															ng-disabled="ctlref2type.isDisabled"
+															md-no-cache="ctlref2type.noCache"
+															md-selected-item="ctlref2type.selectedItem"
+															md-search-text-change="ctlref2type.searchTextChange(ctlref2type.searchText)"
+															md-search-text="ctlref2type.searchText"
+															md-selected-item-change="ctlref2type.selectedItemChange(item)"
+															md-items="item in ctlref2type.querySearch(ctlref2type.searchText)"
+															md-item-text="item.linkname" md-min-length="0">
+														<md-item-template> <span
+															md-highlight-text="ctlref2type.searchText"
+															md-highlight-flags="^i">{{item.linkname}}</span> </md-item-template> <md-not-found>
+														No items matching "{{ctlref2type.searchText}}" were
+														found. <a
+															ng-click="ctlref2type.newState(ctlref2type.searchText)">Create
+															a new one!</a> </md-not-found> </md-autocomplete>
+<!-- 									<input class="form-control" type="text" id="ref2type" name="ref2type" ng-model="link.ref2type" required maxlength="50"></input>
+ --><!--									
+									<div class="input-group-addon" ng-show="frmLink.ref2type.$invalid">
+										<validation-tooltip target="ref2type">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /ref2type -->
+							<!-- ref2id -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="ref2id">{{'bimbuildui_link_ref2id' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmLink.ref2id.$touched || frmLink.ref2id.$dirty || frmDirty) && frmLink.ref2id.$invalid }">
+									<input class="form-control" type="text" id="ref2id" name="ref2id" ng-model="link.ref2id" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmLink.ref2id.$invalid">
+										<validation-tooltip target="ref2id">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /ref2id -->
+							<!-- comment -->
+							<div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="comment">{{'bimbuildui_link_comment' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmLink.comment.$touched || frmLink.comment.$dirty || frmDirty) && frmLink.comment.$invalid }">
+									<input class="form-control" type="text" id="comment" name="comment" ng-model="link.comment" required maxlength="50"></input>
+<!--									
+									<div class="input-group-addon" ng-show="frmLink.comment.$invalid">
+										<validation-tooltip target="comment">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+-->
+								</div>
+							</div>
+							<!-- /comment -->
+							<div class="form-group col-sm-12">
+								<div class="row">
+									<div class="col-sm-6"></div>
+									<div class="col-sm-6">
+								<div class="form-group col-sm-12">
+									<div class="col-sm-1">
+										<input  type="checkbox" value="s">
+									</div>
+										<p class="control-label col-sm-9">copy link from the original element</p>
+							</div></div></div></div>
+							<!-- creationdate -->
+							<!-- <div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="creationdate">{{'bimbuildui_link_creationdate' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmLink.creationdate.$touched || frmLink.creationdate.$dirty || frmDirty) && frmLink.creationdate.$invalid }">
+									<input class="form-control" type="text" id="creationdate" name="creationdate" ng-model="link.creationdate" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmLink.creationdate.$invalid">
+										<validation-tooltip target="creationdate">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /creationdate -->
+							<!-- <!-- iduser -->
+							<!-- <div class="form-group col-sm-12">
+								<label class="control-label col-sm-6" for="iduser">{{'bimbuildui_link_iduser' | translate}}</label>
+								<div class="input-group col-sm-6" ng-class="{ 'has-error': (frmLink.iduser.$touched || frmLink.iduser.$dirty || frmDirty) && frmLink.iduser.$invalid }">
+									<input class="form-control" type="text" id="iduser" name="iduser" ng-model="link.iduser" required maxlength="50"></input>
+									
+									<div class="input-group-addon" ng-show="frmLink.iduser.$invalid">
+										<validation-tooltip target="iduser">
+										<ul class="list-unstyled">
+											<li validation-message ng-if="$field.$error.required">{{'bimbuildui_home_required_field' | translate}}</li>
+										</ul>
+										</validation-tooltip>
+									</div>
+
+								</div>
+							</div> -->
+							<!-- /iduser -->
+						</div>
+					</div>
+					<!-- /First column -->
+					
+					<!-- Second column -->
+					<div class="col-sm-2">
+						<div class="form-vertical">
+						
+						</div>
+					</div>
+					<!-- /Second column -->
+				</div>
+			</div>
+			<!-- Bottom actions -->
+			<div class="panel-footer">
+				<div class="row">
+					<div class="btn-group pull-right">
+						<button class="btn btn-info" ng-click="save()" data-toggle="tooltip" title="{{'bimbuildui_home_save' | translate}}">
+							<span class="glyphicon glyphicon-floppy-disk"></span>
+						</button>
+						<button class="btn btn-info" ng-click="create()" data-toggle="tooltip" title="{{'bimbuildui_home_create' | translate}}">
+							<span class="glyphicon glyphicon-plus"></span>
+						</button>
+						<button class="btn btn-info" ng-click="closeDialog()" data-toggle="tooltip" title="{{'bimbuildui_home_close' | translate}}">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

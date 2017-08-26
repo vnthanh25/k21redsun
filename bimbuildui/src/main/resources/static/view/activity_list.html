@@ -1,0 +1,504 @@
+<section class="content-header">
+</section>
+
+<!-- Main content -->
+<section class="content">
+	
+	<!-- Default box -->
+	<div class="box">
+		<div class="box-header with-border">
+			<h3 class="box-title">{{'bimbuildui_activity_title' | translate}}</h3>
+	      <div class="box-tools pull-right">
+	        <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
+	        <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
+	      </div>
+		</div>
+		<div class="box-body">
+	
+			<div ng-init="initList()">
+				<!-- panel -->
+				<div class="panel panel-default">
+					<!-- panel-heading -->
+					<div class="panel-heading">
+					
+						<!-- top actions -->
+						<div class="row">
+							<div class="pull-left">
+								<dir-pagination-controls
+									   max-size="8"
+									   direction-links="true"
+									   boundary-links="true" 
+									   on-page-change="listWithCriteriasByPage(newPageNumber)" >
+								</dir-pagination-controls>
+							</div>
+							<div class="btn-group pull-right">
+								<button class="btn btn-info" ng-click="showCreate()" data-toggle="tooltip" title="{{'bimbuildui_home_create' | translate}}">
+									<span class="glyphicon glyphicon-plus"></span>
+								</button>
+							</div>
+						</div>
+	
+						<!-- filter	 -->
+						<div class="row">
+							<!-- filter by idproject -->
+							<div class="col-md-2">
+								
+								<input type="text" ng-model="search.idproject" class="inpput-sm" placeholder="{{'bimbuildui_activity_idproject' | translate}}" />
+							</div>
+							<!-- filter by idactivitytype -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.idactivitytype" class="inpput-sm" placeholder="{{'bimbuildui_activity_idactivitytype' | translate}}" />
+							</div>
+							<!-- filter by name -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.name" class="inpput-sm" placeholder="{{'bimbuildui_activity_name' | translate}}" />
+							</div>
+							<!-- filter by description -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.description" class="inpput-sm" placeholder="{{'bimbuildui_activity_description' | translate}}" />
+							</div>
+							<!-- filter by creationdate -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.creationdate" class="inpput-sm" placeholder="{{'bimbuildui_activity_creationdate' | translate}}" />
+							</div>
+							<!-- filter by iduser -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.iduser" class="inpput-sm" placeholder="{{'bimbuildui_activity_iduser' | translate}}" />
+							</div>
+							<!-- filter by idstatus -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.idstatus" class="inpput-sm" placeholder="{{'bimbuildui_activity_idstatus' | translate}}" />
+							</div>
+							<!-- filter by idresource -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.idresource" class="inpput-sm" placeholder="{{'bimbuildui_activity_idresource' | translate}}" />
+							</div>
+							<!-- filter by result -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.result" class="inpput-sm" placeholder="{{'bimbuildui_activity_result' | translate}}" />
+							</div>
+							<!-- filter by comment -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.comment" class="inpput-sm" placeholder="{{'bimbuildui_activity_comment' | translate}}" />
+							</div>
+							<!-- filter by idle -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.idle" class="inpput-sm" placeholder="{{'bimbuildui_activity_idle' | translate}}" />
+							</div>
+							<!-- filter by idactivity -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.idactivity" class="inpput-sm" placeholder="{{'bimbuildui_activity_idactivity' | translate}}" />
+							</div>
+							<!-- filter by done -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.done" class="inpput-sm" placeholder="{{'bimbuildui_activity_done' | translate}}" />
+							</div>
+							<!-- filter by idledate -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.idledate" class="inpput-sm" placeholder="{{'bimbuildui_activity_idledate' | translate}}" />
+							</div>
+							<!-- filter by donedate -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.donedate" class="inpput-sm" placeholder="{{'bimbuildui_activity_donedate' | translate}}" />
+							</div>
+							<!-- filter by handled -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.handled" class="inpput-sm" placeholder="{{'bimbuildui_activity_handled' | translate}}" />
+							</div>
+							<!-- filter by handleddate -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.handleddate" class="inpput-sm" placeholder="{{'bimbuildui_activity_handleddate' | translate}}" />
+							</div>
+							<!-- filter by idversion -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.idversion" class="inpput-sm" placeholder="{{'bimbuildui_activity_idversion' | translate}}" />
+							</div>
+							<!-- filter by reference -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.reference" class="inpput-sm" placeholder="{{'bimbuildui_activity_reference' | translate}}" />
+							</div>
+							<!-- filter by externalreference -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.externalreference" class="inpput-sm" placeholder="{{'bimbuildui_activity_externalreference' | translate}}" />
+							</div>
+							<!-- filter by idcontact -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.idcontact" class="inpput-sm" placeholder="{{'bimbuildui_activity_idcontact' | translate}}" />
+							</div>
+							<!-- filter by cancelled -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.cancelled" class="inpput-sm" placeholder="{{'bimbuildui_activity_cancelled' | translate}}" />
+							</div>
+							<!-- filter by idcomponent -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.idcomponent" class="inpput-sm" placeholder="{{'bimbuildui_activity_idcomponent' | translate}}" />
+							</div>
+							<!-- filter by idproduct -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.idproduct" class="inpput-sm" placeholder="{{'bimbuildui_activity_idproduct' | translate}}" />
+							</div>
+							<!-- filter by isplanningactivity -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.isplanningactivity" class="inpput-sm" placeholder="{{'bimbuildui_activity_isplanningactivity' | translate}}" />
+							</div>
+							<!-- filter by lastupdatedatetime -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.lastupdatedatetime" class="inpput-sm" placeholder="{{'bimbuildui_activity_lastupdatedatetime' | translate}}" />
+							</div>
+							<!-- filter by idcomponentversion -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.idcomponentversion" class="inpput-sm" placeholder="{{'bimbuildui_activity_idcomponentversion' | translate}}" />
+							</div>
+							<!-- filter button -->
+							<div class="col-md-2 btn-group">
+								<button type="button" class="btn btn-default" ng-click="listWithCriteriasByPage(1)" data-toggle="tooltip" title="{{'bimbuildui_home_filter' | translate}}"><span class="glyphicon glyphicon-filter"></span></button>
+								<button type="button" class="btn btn-default" ng-click="clearFilter()" data-toggle="tooltip" title="{{'bimbuildui_home_filter_clear' | translate}}"><span class="glyphicon glyphicon-remove"></span></button>
+							</div>
+						</div>
+	
+					</div>
+				
+					<!-- list of content -->
+					<div class="panel-body">
+						<div class="table-responsive">
+							<table class="table table-bordered table-striped">
+								<thead>
+									<tr>
+										<!-- filter by idproject -->
+										<th ng-click="sortBy('idproject')">{{'bimbuildui_activity_idproject' | translate}}
+											<span ng-show="sortKey === 'idproject'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by idactivitytype -->
+										<th ng-click="sortBy('idactivitytype')">{{'bimbuildui_activity_idactivitytype' | translate}}
+											<span ng-show="sortKey === 'idactivitytype'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by name -->
+										<th ng-click="sortBy('name')">{{'bimbuildui_activity_name' | translate}}
+											<span ng-show="sortKey === 'name'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by description -->
+										<th ng-click="sortBy('description')">{{'bimbuildui_activity_description' | translate}}
+											<span ng-show="sortKey === 'description'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by creationdate -->
+										<th ng-click="sortBy('creationdate')">{{'bimbuildui_activity_creationdate' | translate}}
+											<span ng-show="sortKey === 'creationdate'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by iduser -->
+										<th ng-click="sortBy('iduser')">{{'bimbuildui_activity_iduser' | translate}}
+											<span ng-show="sortKey === 'iduser'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by idstatus -->
+										<th ng-click="sortBy('idstatus')">{{'bimbuildui_activity_idstatus' | translate}}
+											<span ng-show="sortKey === 'idstatus'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by idresource -->
+										<th ng-click="sortBy('idresource')">{{'bimbuildui_activity_idresource' | translate}}
+											<span ng-show="sortKey === 'idresource'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by result -->
+										<th ng-click="sortBy('result')">{{'bimbuildui_activity_result' | translate}}
+											<span ng-show="sortKey === 'result'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by comment -->
+										<th ng-click="sortBy('comment')">{{'bimbuildui_activity_comment' | translate}}
+											<span ng-show="sortKey === 'comment'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by idle -->
+										<th ng-click="sortBy('idle')">{{'bimbuildui_activity_idle' | translate}}
+											<span ng-show="sortKey === 'idle'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by idactivity -->
+										<th ng-click="sortBy('idactivity')">{{'bimbuildui_activity_idactivity' | translate}}
+											<span ng-show="sortKey === 'idactivity'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by done -->
+										<th ng-click="sortBy('done')">{{'bimbuildui_activity_done' | translate}}
+											<span ng-show="sortKey === 'done'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by idledate -->
+										<th ng-click="sortBy('idledate')">{{'bimbuildui_activity_idledate' | translate}}
+											<span ng-show="sortKey === 'idledate'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by donedate -->
+										<th ng-click="sortBy('donedate')">{{'bimbuildui_activity_donedate' | translate}}
+											<span ng-show="sortKey === 'donedate'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by handled -->
+										<th ng-click="sortBy('handled')">{{'bimbuildui_activity_handled' | translate}}
+											<span ng-show="sortKey === 'handled'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by handleddate -->
+										<th ng-click="sortBy('handleddate')">{{'bimbuildui_activity_handleddate' | translate}}
+											<span ng-show="sortKey === 'handleddate'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by idversion -->
+										<th ng-click="sortBy('idversion')">{{'bimbuildui_activity_idversion' | translate}}
+											<span ng-show="sortKey === 'idversion'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by reference -->
+										<th ng-click="sortBy('reference')">{{'bimbuildui_activity_reference' | translate}}
+											<span ng-show="sortKey === 'reference'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by externalreference -->
+										<th ng-click="sortBy('externalreference')">{{'bimbuildui_activity_externalreference' | translate}}
+											<span ng-show="sortKey === 'externalreference'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by idcontact -->
+										<th ng-click="sortBy('idcontact')">{{'bimbuildui_activity_idcontact' | translate}}
+											<span ng-show="sortKey === 'idcontact'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by cancelled -->
+										<th ng-click="sortBy('cancelled')">{{'bimbuildui_activity_cancelled' | translate}}
+											<span ng-show="sortKey === 'cancelled'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by idcomponent -->
+										<th ng-click="sortBy('idcomponent')">{{'bimbuildui_activity_idcomponent' | translate}}
+											<span ng-show="sortKey === 'idcomponent'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by idproduct -->
+										<th ng-click="sortBy('idproduct')">{{'bimbuildui_activity_idproduct' | translate}}
+											<span ng-show="sortKey === 'idproduct'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by isplanningactivity -->
+										<th ng-click="sortBy('isplanningactivity')">{{'bimbuildui_activity_isplanningactivity' | translate}}
+											<span ng-show="sortKey === 'isplanningactivity'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by lastupdatedatetime -->
+										<th ng-click="sortBy('lastupdatedatetime')">{{'bimbuildui_activity_lastupdatedatetime' | translate}}
+											<span ng-show="sortKey === 'lastupdatedatetime'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by idcomponentversion -->
+										<th ng-click="sortBy('idcomponentversion')">{{'bimbuildui_activity_idcomponentversion' | translate}}
+											<span ng-show="sortKey === 'idcomponentversion'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<!-- filter by planningmode -->
+										<th ng-click="sortBy('planningmode')">{{'bimbuildui_activity_planningmode' | translate}}
+											<span ng-show="sortKey === 'planningmode'" class="glyphicon sort-icon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"/>
+										</th>
+										<th/>
+										<th/>
+									</tr>
+								</thead>
+								<tbody>
+									<tr dir-paginate="item in activitys | orderBy:sortKey:reverse | itemsPerPage:page.pageSize" current-page="page.currentPage" total-items="page.totalElements">
+										<!-- filter by idproject -->
+										<td>{{getProjectName(item.idproject)}}</td>
+										<!-- filter by idactivitytype -->
+										<td>{{getTypeName(item.idactivitytype)}}</td>
+										<!-- filter by name -->
+										<td>{{item.name}}</td>
+										<!-- filter by description -->
+										<td>{{item.description}}</td>
+										<!-- filter by creationdate -->
+										<td>{{item.creationdate}}</td>
+										<!-- filter by iduser -->
+										<td>{{item.iduser}}</td>
+										<!-- filter by idstatus -->
+										<td>{{getStatusName(item.idstatus)}}</td>
+										<!-- filter by idresource -->
+										<td>{{getResponsibleName(item.idresource)}}</td>
+										<!-- filter by result -->
+										<td>{{item.result}}</td>
+										<!-- filter by comment -->
+										<td>{{item.comment}}</td>
+										<!-- filter by idle -->
+										<td>{{item.idle}}</td>
+										<!-- filter by idactivity -->
+										<td>{{getParentName(item.idactivity)}}</td>
+										<!-- filter by done -->
+										<td>{{item.done}}</td>
+										<!-- filter by idledate -->
+										<td>{{item.idledate}}</td>
+										<!-- filter by donedate -->
+										<td>{{item.donedate}}</td>
+										<!-- filter by handled -->
+										<td>{{item.handled}}</td>
+										<!-- filter by handleddate -->
+										<td>{{item.handleddate}}</td>
+										<!-- filter by idversion -->
+										<td>{{item.idversion}}</td>
+										<!-- filter by reference -->
+										<td>{{item.reference}}</td>
+										<!-- filter by externalreference -->
+										<td>{{item.externalreference}}</td>
+										<!-- filter by idcontact -->
+										<td>{{getResourceName(item.idcontact)}}</td>
+										<!-- filter by cancelled -->
+										<td>{{item.cancelled}}</td>
+										<!-- filter by idcomponent -->
+										<td>{{item.idcomponent}}</td>
+										<!-- filter by idproduct -->
+										<td>{{item.idproduct}}</td>
+										<!-- filter by isplanningactivity -->
+										<td>{{item.isplanningactivity}}</td>
+										<!-- filter by lastupdatedatetime -->
+										<td>{{item.lastupdatedatetime}}</td>
+										<!-- filter by idcomponentversion -->
+										<td>{{item.idcomponentversion}}</td>
+										<!-- filter by idcomponentversion -->
+										<td>{{item.idcomponentversion}}</td>
+										<!-- filter by planningmode -->
+									
+										<td>
+											<div ng-click="showForm(item.id)" data-toggle="tooltip" title="{{'bimbuildui_home_edit' | translate}}">
+												<span class="glyphicon glyphicon-pencil"></span>
+											</div>
+										</td>
+										<td>
+											<div ng-click="delete(item.id)" data-toggle="tooltip" title="{{'bimbuildui_home_delete' | translate}}">
+												<span class="glyphicon glyphicon-trash"></span>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- panel-footer -->
+					<div class="panel-footer">
+					
+						<!-- filter	 -->
+						<div class="row">
+							<!-- filter by idproject -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.idproject" class="inpput-sm" placeholder="{{'bimbuildui_activity_idproject' | translate}}" />
+							</div>
+							<!-- filter by idactivitytype -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.idactivitytype" class="inpput-sm" placeholder="{{'bimbuildui_activity_idactivitytype' | translate}}" />
+							</div>
+							<!-- filter by name -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.name" class="inpput-sm" placeholder="{{'bimbuildui_activity_name' | translate}}" />
+							</div>
+							<!-- filter by description -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.description" class="inpput-sm" placeholder="{{'bimbuildui_activity_description' | translate}}" />
+							</div>
+							<!-- filter by creationdate -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.creationdate" class="inpput-sm" placeholder="{{'bimbuildui_activity_creationdate' | translate}}" />
+							</div>
+							<!-- filter by iduser -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.iduser" class="inpput-sm" placeholder="{{'bimbuildui_activity_iduser' | translate}}" />
+							</div>
+							<!-- filter by idstatus -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.idstatus" class="inpput-sm" placeholder="{{'bimbuildui_activity_idstatus' | translate}}" />
+							</div>
+							<!-- filter by idresource -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.idresource" class="inpput-sm" placeholder="{{'bimbuildui_activity_idresource' | translate}}" />
+							</div>
+							<!-- filter by result -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.result" class="inpput-sm" placeholder="{{'bimbuildui_activity_result' | translate}}" />
+							</div>
+							<!-- filter by comment -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.comment" class="inpput-sm" placeholder="{{'bimbuildui_activity_comment' | translate}}" />
+							</div>
+							<!-- filter by idle -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.idle" class="inpput-sm" placeholder="{{'bimbuildui_activity_idle' | translate}}" />
+							</div>
+							<!-- filter by idactivity -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.idactivity" class="inpput-sm" placeholder="{{'bimbuildui_activity_idactivity' | translate}}" />
+							</div>
+							<!-- filter by done -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.done" class="inpput-sm" placeholder="{{'bimbuildui_activity_done' | translate}}" />
+							</div>
+							<!-- filter by idledate -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.idledate" class="inpput-sm" placeholder="{{'bimbuildui_activity_idledate' | translate}}" />
+							</div>
+							<!-- filter by donedate -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.donedate" class="inpput-sm" placeholder="{{'bimbuildui_activity_donedate' | translate}}" />
+							</div>
+							<!-- filter by handled -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.handled" class="inpput-sm" placeholder="{{'bimbuildui_activity_handled' | translate}}" />
+							</div>
+							<!-- filter by handleddate -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.handleddate" class="inpput-sm" placeholder="{{'bimbuildui_activity_handleddate' | translate}}" />
+							</div>
+							<!-- filter by idversion -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.idversion" class="inpput-sm" placeholder="{{'bimbuildui_activity_idversion' | translate}}" />
+							</div>
+							<!-- filter by reference -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.reference" class="inpput-sm" placeholder="{{'bimbuildui_activity_reference' | translate}}" />
+							</div>
+							<!-- filter by externalreference -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.externalreference" class="inpput-sm" placeholder="{{'bimbuildui_activity_externalreference' | translate}}" />
+							</div>
+							<!-- filter by idcontact -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.idcontact" class="inpput-sm" placeholder="{{'bimbuildui_activity_idcontact' | translate}}" />
+							</div>
+							<!-- filter by cancelled -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.cancelled" class="inpput-sm" placeholder="{{'bimbuildui_activity_cancelled' | translate}}" />
+							</div>
+							<!-- filter by idcomponent -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.idcomponent" class="inpput-sm" placeholder="{{'bimbuildui_activity_idcomponent' | translate}}" />
+							</div>
+							<!-- filter by idproduct -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.idproduct" class="inpput-sm" placeholder="{{'bimbuildui_activity_idproduct' | translate}}" />
+							</div>
+							<!-- filter by isplanningactivity -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.isplanningactivity" class="inpput-sm" placeholder="{{'bimbuildui_activity_isplanningactivity' | translate}}" />
+							</div>
+							<!-- filter by lastupdatedatetime -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.lastupdatedatetime" class="inpput-sm" placeholder="{{'bimbuildui_activity_lastupdatedatetime' | translate}}" />
+							</div>
+							<!-- filter by idcomponentversion -->
+							<div class="col-md-2">
+								<input type="text" ng-model="search.idcomponentversion" class="inpput-sm" placeholder="{{'bimbuildui_activity_idcomponentversion' | translate}}" />
+							</div>
+							<!-- filter button -->
+							<div class="col-md-2 btn-group">
+								<button type="button" class="btn btn-default" ng-click="listWithCriteriasByPage(1)" data-toggle="tooltip" title="{{'bimbuildui_home_filter' | translate}}"><span class="glyphicon glyphicon-filter"></span></button>
+								<button type="button" class="btn btn-default" ng-click="clearFilter()" data-toggle="tooltip" title="{{'bimbuildui_home_filter_clear' | translate}}"><span class="glyphicon glyphicon-remove"></span></button>
+							</div>
+						</div>
+						
+						<!-- bottom actions -->
+						<div class="row">
+						
+							<div class="pull-left">
+								<dir-pagination-controls
+									   max-size="8"
+									   direction-links="true"
+									   boundary-links="true" >
+								</dir-pagination-controls>
+							</div>
+							<div class="btn-group pull-right">
+								<button class="btn btn-info" ng-click="showCreate()" data-toggle="tooltip" title="{{'bimbuildui_home_create' | translate}}">
+									<span class="glyphicon glyphicon-plus"></span>
+								</button>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div><!-- /.box-body -->
+	    <div class="box-footer">
+	      Footer
+	    </div><!-- /.box-footer-->
+	  </div><!-- /.box -->
+
+</section><!-- /.content -->

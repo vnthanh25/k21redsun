@@ -1,0 +1,22 @@
+{
+	"bimbuildui_version_title": "Product Versions",
+	"bimbuildui_version_idproduct": "product name",
+	"bimbuildui_version_idcontact": "prime contractor",
+	"bimbuildui_version_idresource": "responsible",
+	"bimbuildui_version_name": "version name",
+	"bimbuildui_version_description": "description",
+	"bimbuildui_version_creationdate": "creation date",
+	"bimbuildui_version_idle": "closed",
+	"bimbuildui_version_initialeisdate": "initial entry into service",
+	"bimbuildui_version_plannedeisdate": "planned entry into service",
+	"bimbuildui_version_realeisdate": "real entry into service",
+	"bimbuildui_version_initialenddate": "requested end date",
+	"bimbuildui_version_plannedenddate": "plannedenddate",
+	"bimbuildui_version_realenddate": "real end",
+	"bimbuildui_version_iseis": "is entered into service",
+	"bimbuildui_version_scope": "scope",
+	"bimbuildui_version_versionnumber": "versionnumber",
+	"bimbuildui_version_iduser": "user",
+	"bimbuildui_version_idversiontype": "product version type",
+	"bimbuildui_version_id": "id"
+}
